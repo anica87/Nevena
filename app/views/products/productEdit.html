@@ -1,0 +1,54 @@
+<div class="view" ng-controller="productEditController">
+  <div class="container">
+    <header>
+      <h3><span class="glyphicon glyphicon-edit"></span> {{title}} Product</h3>
+    </header>
+    <form name="registrForm" role="form">
+      <div class="row">
+        <div class="col-md-2">
+          Product Name:
+        </div>
+        <div class="col-md-10">
+          <input type="text" name="firstName" class="form-control" data-ng-model="product.ProductName"/>
+          <!--<span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">-->
+          <!--First name is required-->
+          <!--</span>-->
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-md-2">
+          Customer:
+        </div>
+        <div class="col-md-10">
+          <!-- label for value in array -->
+          <select id="peopleArraySel2"  class="form-control" ng-model="author" ng-options="getAllDetailsOfAuthor(author) for author in authors">
+            < value="">Choose a author</option>
+          </select><br />
+
+            <!--<select class="form-control" ng-model="selectedItem" ng-value="author.CustomerID"
+                    ng-options="item as author.ContactName for author in authors"></select>
+            {{author.ContactName}}-->
+        </div>
+      </div>
+      </br>
+      <div class="row">
+        <div class="col-md-12">
+          <!--<button type="submit" class="btn btn-primary" data-ng-click="vm.saveCustomer()"-->
+          <!--ng-disabled="editForm.$invalid || !editForm.$dirty">-->
+          <!--{{vm.buttonText}}-->
+          <!--</button>-->
+          <button type="submit" class="btn btn-primary" data-ng-click="saveProduct()">
+            {{buttonText}}
+          </button>
+          &nbsp;&nbsp;
+          <button type="submit" class="btn btn-primary" data-ng-click="deleteProduct()">
+            Delete Product
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+

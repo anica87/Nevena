@@ -1,0 +1,99 @@
+<div class="view" ng-controller="authorEditController">
+  <div class="container">
+    <header>
+      <h3><span class="glyphicon glyphicon-edit"></span> {{title}} Author</h3>
+    </header>
+    <form name="registrForm" role="form">
+      <div class="row">
+        <div class="col-md-2">
+          First Name:
+        </div>
+        <div class="col-md-10">
+          <input type="text" name="firstName" class="form-control" data-ng-model="author.CompanyName"/>
+                        <!--<span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">-->
+                            <!--First name is required-->
+                        <!--</span>-->
+        </div>
+      </div>
+      <br/>
+      <div class="row">
+        <div class="col-md-2">
+          Last Name:
+        </div>
+        <div class="col-md-10">
+          <input type="text" name="firstName" class="form-control" data-ng-model="author.ContactName"  />
+                        <!--<span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">-->
+                            <!--Last Name is required-->
+                        <!--</span>-->
+        </div>
+      </div>
+      </br>
+      <div class="row">
+        <div class="col-md-2">
+          Last Name:
+        </div>
+        <div class="col-md-10">
+          <input type="text" name="firstName" class="form-control" data-ng-model="author.ContactTitle"  />
+                        <!--<span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">-->
+                            <!--Last Name is required-->
+                        <!--</span>-->
+        </div>
+      </div>
+      </br>
+      <div class="row">
+        <div class="col-md-2">
+          Last Name:
+        </div>
+        <div class="col-md-10">
+          <input type="text" name="firstName" class="form-control" data-ng-model="author.Address"  />
+                        <!--<span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">-->
+                            <!--Last Name is required-->
+                        <!--</span>-->
+        </div>
+      </div>
+      </br>
+      <div class="row">
+        <div class="col-md-2">
+          Last Name:
+        </div>
+        <div class="col-md-10">
+          <input type="text" name="firstName" class="form-control" data-ng-model="author.City"  />
+                        <!--<span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">-->
+                            <!--Last Name is required-->
+                        <!--</span>-->
+        </div>
+      </div>
+      </br>
+      <div class="row">
+        <div class="col-md-2">
+          Last Name:
+        </div>
+        <div class="col-md-10">
+          <input type="text" name="firstName" class="form-control" data-ng-model="author.State"  />
+                        <!--<span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">-->
+                            <!--Last Name is required-->
+                        <!--</span>-->
+        </div>
+      </div>
+      </br>
+      <div class="row">
+        <div class="col-md-12">
+          <!--<button type="submit" class="btn btn-primary" data-ng-click="vm.saveCustomer()"-->
+                  <!--ng-disabled="editForm.$invalid || !editForm.$dirty">-->
+            <!--{{vm.buttonText}}-->
+          <!--</button>-->
+          <button type="submit" class="btn btn-primary" data-ng-click="saveAuthor()">
+            {{buttonText}}
+          </button>
+          &nbsp;&nbsp;
+          <button type="submit" class="btn btn-primary" data-ng-click="deleteAuthor()">
+            Delete Author
+          </button>
+          <!--<button class="btn btn-danger" data-ng-if="vm.customer.id > 0" data-ng-click="vm.deleteCustomer()">Delete</button>-->
+        </div>
+      </div>
+      </form>
+  </div>
+</div>
+
+
