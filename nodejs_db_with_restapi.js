@@ -258,13 +258,95 @@ restapi.post('/:customerid/addproduct', function(req, res){
   db.run("END");
   context.finalize();
 });
-
-
-
 /*--------------------------------------------------------*/
 
-/*---------------------- ORDERS ----------------------
---------------------------------------------------------*/
+/* ---------------------- ORDERS ------------------------- */
+restapi.get('/orders', function(req, res){
+  db.all("select * from orders", function(err, rows){
+    if(err !== null){
+      next(err);
+    }
+    else{
+      res.json({"orders": rows})
+      for (var i in rows){
+        console.log(rows[i]);
+      }
+    }
+  });
+});
+
+
+restapi.get('/:customerid/:productid/:orderid', function(req, res){
+  console.log(req.params.customerid);
+  console.log(req.params.productid);
+  db.get("SELECT * FROM orders WHERE OrderID =" + req.params.orderid, function(err, row){
+    res.json({ "product": row});
+  });
+});
+
+restapi.delete('/:customerid/:productid/:orderid', function(req, res){
+  console.log(req.params.customerId);
+  console.log(req.params.productid);
+  // db.run("BEGIN TRANSACTION");
+  db.run("delete from orders where OrderID =" + req.params.orderid, function(err, row){
+    if(err)
+    {
+      console.log("there is the bug");
+    }
+    else
+    {
+      res.json({ "deleted the order with following ID": req.params.orderid});
+    }
+  });
+});
+
+restapi.put('/:customerid/:productid/:orderid', function(req, res){
+  console.log(req.params.customerid);
+  console.log(req.params.productid);
+  console.log(JSON.stringify(req.body.author));
+  console.log("update order set  OrderName ='" +req.body.ProductName+ "' where ProductID = " + req.params.orderid);
+  db.run("update order set  OrderName ='" +req.body.OrderName + "' where OrderID = " + req.params.orderid,  function(err, row){
+      if(err)
+      {
+        console.log("there is the bug");
+        console.log(err);
+      }
+      else
+      {
+        res.json({ "updated the order with following ID": req.params.orderid});
+      }
+    }
+  );
+});
+
+restapi.post('/:customerid/:productid/addorder', function(req, res){
+  console.log("productName" + req.body.ProductName);
+  console.log("customerId" + req.params.customerid);
+  console.log("customerId iz body- a " +req.body.customerid);
+  console.log("insert into orders (OrderID,OrderName,CustomerID, ProductID)" + "VALUES( null,'" + req.body.OrderName  + "'," + req.params.customerid + "'," + req.params.productid +"");
+  var context = db.prepare("insert into products VALUES (NULL,?,?)");
+  // should check if alreday there is a customer with that id
+  db.run("BEGIN TRANSACTION");
+  db.run("insert into orders (OrderID,OrderName,CustomerID, ProductID)" + "VALUES( null,'" + req.body.OrderName  + "'," + req.params.customerid  + "'," + req.params.productid +")"
+    ,function(err, row)
+    {
+      if (err){
+        console.log("there is the bug");
+        console.log(err);
+        res.status(500);
+      }
+      else {
+        console.log("there isn't the bug");
+        res.status(202);
+      }
+      res.end();
+    }
+  );
+  db.run("END");
+  context.finalize();
+});
+
+/* --------------------------------------------------------*/
 
 
 

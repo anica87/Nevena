@@ -15,11 +15,18 @@ angular.module('angularCordovaApp')
     $scope.currentPage = 1;
     $scope.filteredCount = 45;
     var idParam = $routeParams.id;
-
-
+    $scope.authors = [];
+    $scope.filteredAuthors = [];
+    $scope.searchText = null;
+    $scope.filteredCountAuthors = 0;
 
     $scope.findAuthor = function(){
       $scope.filteredAuthors = $filter('nameProduct')($scope.searchText, $scope.authors);
+    };
+
+
+    $scope.searchTextChanged = function(){
+      filterAuthors($scope.searchText);
     };
 
     $scope.navigate = function(url){
@@ -47,10 +54,17 @@ angular.module('angularCordovaApp')
       $scope.currentPage = page;
     };
 
+    function filterAuthors(searchText){
+      $scope.filteredAuthors = $filter('nameProduct')(searchText, $scope.authors);
+      $scope.filteredCountAuthors = $scope.filteredAuthors.length;
+    }
+
+
     function init(){
       $http.get("http://localhost:3000/data")
         .success(function(data){
           $scope.authors = data.customers;
+          filterAuthors('');
         })
         .error(function(data){
           console.log("Error "+ data);

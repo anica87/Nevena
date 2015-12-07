@@ -8,6 +8,7 @@ angular.module('angularCordovaApp')
     var authorId = ($routeParams.id) ? parseInt($routeParams.id) : 0;
     $scope.buttonText = (authorId > 0) ? 'Update' : 'Add';
     $scope.title = (authorId > 0) ? 'Edit' : 'Add';
+    $scope.buttonDisplay = (authorId > 0) ? false : true;
     $scope.author ={};
 
 
@@ -43,6 +44,8 @@ angular.module('angularCordovaApp')
 
       $http.delete("http://localhost:3000/customers/" + id)
         .success(function(){
+          $scope.author = angular.copy($scope.originForm);
+          $scope.registrForm.$setPristine();
           alert("Successfully deleted!")
 
         })

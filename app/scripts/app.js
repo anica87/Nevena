@@ -57,6 +57,28 @@ var fs = require('fs');*/
         controller:  'productEditController',
         controllerAs: 'productEdit'
       })
+
+      .when ('/products',{
+        templateUrl: 'views/products/products.html',
+        controller:  'productsController',
+        controllerAs: 'products'
+      })
+      .when ('/productEdit/:customerid/:productid',{
+        templateUrl: 'views/products/productEdit.html',
+        controller:  'productEditController',
+        controllerAs: 'productEdit'
+      })
+
+      .when ('/orders',{
+        templateUrl: 'views/orders/orders.html',
+        controller:  'ordersController',
+        controllerAs: 'products'
+      })
+      .when ('/orderEdit/:customerid/:productid/:orderid',{
+        templateUrl: 'views/orders/orderEdit.html',
+        controller:  'orderEditController',
+        controllerAs: 'productEdit'
+      })
       .otherwise({
         redirectTo: '/'
       });

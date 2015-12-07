@@ -14,6 +14,14 @@ angular.module('angularCordovaApp')
     $scope.title = (productId > 0) ? 'Edit' : 'Add';
     $scope.product ={};
     $scope.author ={};
+
+    $scope.defaultValue = "Default value";
+
+    $scope.getAllDetailsOfAuthor = function(author){
+      return "bla bla " + author.ContactName;
+    };
+
+
     $scope.saveProduct = function(){
       var id = parseInt($scope.author.CustomerID);
       if(!productId) {
@@ -44,14 +52,12 @@ angular.module('angularCordovaApp')
 
     };
 
-    $scope.getAllDetailsOfAuthor = function(author){
-        return "bla bla " + author.ContactName;
-    };
-
     $scope.deleteProduct = function(){
 
       $http.delete("http://localhost:3000/"+ customerid + "/" + productId)
         .success(function(){
+          $scope.author = angular.copy($scope.originForm);
+          $scope.product = angular.copy($scope.originForm);
           alert("Successfully deleted!")
 
         })
