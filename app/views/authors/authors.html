@@ -60,14 +60,14 @@
             <thead>
             <tr>
               <!--<th>&nbsp;</th>-->
-              <th> Name</th>
-              <th> Location</th>
+              <th> <a href="" ng-click="order('ContactName')"> Name</a></th>
+              <th><a href="" ng-click="order('CompanyName')"> Location</a></th>
               <th> Action</th>
-              <th>&nbsp;</th>
+              <!--<th>&nbsp;</th>-->
             </tr>
             </thead>
             <tbody>
-            <tr data-ng-repeat="author in filteredAuthors | filter: paginate" class="repeat-animation">
+            <tr data-ng-repeat="author in filteredAuthors |orderBy :predicate:reverse | filter: paginate" class="repeat-animation">
               <td>{{author.ContactName}}</td>
               <td>{{author.CompanyName}}</td>
               <td><a  ng-href="#/authorEdit/{{author.CustomerID}}" ng-model ="author.CustomerID" >Edit</a></td>

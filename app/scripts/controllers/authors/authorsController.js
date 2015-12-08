@@ -20,12 +20,19 @@ angular.module('angularCordovaApp')
     $scope.searchText = null;
     $scope.filteredCountAuthors = 0;
 
+
+    $scope.predicate = 'ContactName';
+    $scope.reverse = true;
+
+    $scope.order = function(predicate){
+      $scope.reverse = ($scope.predicate === predicate)? !$scope.reverse :false;
+      $scope.predicate = predicate;
+
+  }
+
     $scope.findAuthor = function(){
       $scope.filteredAuthors = $filter('nameProduct')($scope.searchText, $scope.authors);
     };
-
-
-
 
     $scope.searchTextChanged = function(){
       filterAuthors($scope.searchText);
