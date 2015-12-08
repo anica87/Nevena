@@ -48,7 +48,7 @@
       </li>
     </ui>-->
 
-    <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="author in filteredAuthors" data-ng-hide="listDisplayModeEnabled">
+    <div class="col-sm-6 col-md-4 col-lg-3" ng-repeat="author in filteredAuthors | filter: paginate" data-ng-hide="listDisplayModeEnabled">
       {{author.ContactName}}-  {{author.ContactTitle}}-  {{author.CompanyName}}  <a  ng-href="#/authorEdit/{{author.CustomerID}}" ng-model ="author.CustomerID" >Edit</a>
       <a  ng-href="#/products" ng-model ="author.CustomerID" >Products</a>
     </div>
@@ -67,29 +67,20 @@
             </tr>
             </thead>
             <tbody>
-            <tr data-ng-repeat="author in filteredAuthors" class="repeat-animation">
+            <tr data-ng-repeat="author in filteredAuthors | filter: paginate" class="repeat-animation">
               <td>{{author.ContactName}}</td>
               <td>{{author.CompanyName}}</td>
               <td><a  ng-href="#/authorEdit/{{author.CustomerID}}" ng-model ="author.CustomerID" >Edit</a></td>
             </tr>
             </tbody>
           </table>
+          <pagination total-items="filteredCountAuthors" ng-model="currentPage"
+                      max-size="5" boundary-links="true"
+                      items-per-page="numPerPage" class="pagination-sm">
+          </pagination>
         </div>
       </div>
 
   </div>
-    <div class="row show-hide-animation" data-ng-show="authors.length > 0">
-      <div class="col-md-12">
-        <div data-pagination
-             data-on-select-page="pageChanged(page)"
-             data-total-items="totalRecords"
-             data-page="currentPage"
-             data-items-per-page="pageSize"
-             data-boundary-links="true"
-             class="pagination-sm"></div>
-        <h5>Showing {{filteredCount }} of {{ totalRecords}} total authors</h5>
-      </div>
-    </div>
 </div>
-
 </div>

@@ -16,12 +16,14 @@ var fs = require('fs');*/
 
  angular
   .module('angularCordovaApp', [
+
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch'
+    'ngTouch',
+    'ui.bootstrap'
   ])
 
   .config(function ($routeProvider) {

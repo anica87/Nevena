@@ -10,10 +10,10 @@ angular.module('angularCordovaApp')
   .controller('authorsController', function ($scope, $http, $routeParams, $filter, $location, nameProductFilter) {
     // at the begining it was this instead of  $scope
     //paging
-    $scope.totalRecords = 56;
     $scope.pageSize = 5;
     $scope.currentPage = 1;
-    $scope.filteredCount = 45;
+    $scope.numPerPage = 10;
+
     var idParam = $routeParams.id;
     $scope.authors = [];
     $scope.filteredAuthors = [];
@@ -23,6 +23,8 @@ angular.module('angularCordovaApp')
     $scope.findAuthor = function(){
       $scope.filteredAuthors = $filter('nameProduct')($scope.searchText, $scope.authors);
     };
+
+
 
 
     $scope.searchTextChanged = function(){
@@ -58,18 +60,26 @@ angular.module('angularCordovaApp')
       $scope.filteredAuthors = $filter('nameProduct')(searchText, $scope.authors);
       $scope.filteredCountAuthors = $scope.filteredAuthors.length;
     }
-
+    $scope.paginate = function(value){
+      var begin, end, index;
+      begin = ($scope.currentPage - 1) * $scope.numPerPage;
+      end = begin + $scope.numPerPage;
+      index = $scope.filteredAuthors.indexOf(value);
+      return (begin <= index && index < end);
+    }
 
     function init(){
       $http.get("http://localhost:3000/data")
         .success(function(data){
           $scope.authors = data.customers;
           filterAuthors('');
+         // $scope.totalItems =  $scope.authors.length;
         })
         .error(function(data){
           console.log("Error "+ data);
         });
     };
     init();
+
    /* $scope.totalRecords = $scope.authors.length;*/
   });
