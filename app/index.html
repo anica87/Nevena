@@ -14,12 +14,12 @@
     <!-- endbuild -->
     <!-- build:css(.tmp) styles/main.css -->
     <!--<script type="text/javascript" src="/browserify.js"></script>-->
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="styles/main.css">
     <link href="styles/bootstrap.css" rel="stylesheet"/>
     <link href="styles/animations.css" rel="stylesheet"/>
     <link href="styles/styles.css" rel="stylesheet" />
     <script src="scripts/services/cordova.js"></script>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
     <!-- endbuild -->
   </head>
   <body ng-app="angularCordovaApp">
@@ -99,13 +99,13 @@
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
     <script src="bower_components/angular-animate/angular-animate.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -122,6 +122,7 @@
         <script src="scripts/controllers/orders/orderEditController.js"></script>
         <script src="scripts/controllers/orders/ordersController.js"></script>
         <script src="scripts/filters/nameProductFilter.js"></script>
+        <script src="scripts/customDirectives/orderDetails.js"></script>
 
         <script src="scripts/services/databaseService.js"></script>
         <!-- endbuild -->

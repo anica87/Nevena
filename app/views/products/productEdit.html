@@ -22,7 +22,7 @@
         </div>
         <div class="col-md-10">
           <!-- label for value in array -->
-          <select  id="peopleArraySel2"  class="form-control" ng-model="defaultValue" ng-options="getAllDetailsOfAuthor(author) for author in authors">
+          <select  id="peopleArraySel2"  class="form-control" data-ng-model="product.CustomerID" ng-options="author.CustomerID as author.ContactName for author in authors">
 
           </select><br />
 

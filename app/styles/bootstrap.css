@@ -320,13 +320,13 @@ textarea {
 }
 
 a {
-  color: #428bca;
+  color: #000;
   text-decoration: none;
 }
 
 a:hover,
 a:focus {
-  color: #2a6496;
+  color: #000;
   text-decoration: underline;
 }
 
@@ -525,7 +525,7 @@ cite {
 }
 
 .text-primary {
-  color: #428bca;
+  color: #000;
 }
 
 .text-primary:hover {
@@ -2579,7 +2579,7 @@ fieldset[disabled] .btn-info.active {
 
 .btn-link {
   font-weight: normal;
-  color: #428bca;
+  color: #000;
   cursor: pointer;
   border-radius: 0;
 }

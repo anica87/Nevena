@@ -16,14 +16,13 @@ var fs = require('fs');*/
 
  angular
   .module('angularCordovaApp', [
-
     'ngAnimate',
     'ngCookies',
     'ngResource',
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ui.bootstrap'
+    'ui.bootstrap',
   ])
 
   .config(function ($routeProvider) {
@@ -79,7 +78,7 @@ var fs = require('fs');*/
       .when ('/orderEdit/:customerid/:productid/:orderid',{
         templateUrl: 'views/orders/orderEdit.html',
         controller:  'orderEditController',
-        controllerAs: 'productEdit'
+        controllerAs: 'orderEdit'
       })
       .otherwise({
         redirectTo: '/'

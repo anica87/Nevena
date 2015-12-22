@@ -147,7 +147,7 @@ body {
 
 .ordersTable tr:first-child th, .customersTable tr:first-child th {
     background-color: #027FF4;
-    color: #fff;
+    color: #000;
     font-weight: bold;
 }
 
@@ -166,11 +166,11 @@ footer {
     font-weight: bold;
 }
 
-.customerEdit input[type='text'], 
+.customerEdit input[type='text'],
 .customerEdit input[type='number'],
 .customerEdit input[type='email'],
 .customerEdit select,
-.login input[type='text'], 
+.login input[type='text'],
 .login input[type='email'],
 .login input[type='password'] {
     width:250px;
@@ -183,7 +183,7 @@ footer {
 /* Bootstrap overrides */
 
 /* Added to fix Bootstrap 3 issue with Angular UI Bootstrap modal dialog*/
-.modal { 
+.modal {
   display: block;
   overflow: hidden;
   overflow-y: hidden;
@@ -212,7 +212,7 @@ footer {
 }
 
 a.navbar-brand {
-    color: #fff;
+    color: #000;
 }
 
 .navbar-inner {
@@ -242,7 +242,7 @@ a.navbar-brand {
     background-color: #efefef;
     -webkit-box-shadow: none;
     box-shadow: none;
-    color: #808080;
+    color: #000;
 }
 
 .navbar .nav li.toolbaritem a:hover, .navbar .nav li a:hover {
@@ -352,13 +352,13 @@ input.ng-valid, select.ng-valid, input.ng-valid-required, select.ng-valid.requir
 
 /* wcOverlay directive CSS styles */
 .overlayContainer { display: none;}
-.overlayBackground { top:0px; left:0px; padding-left:100px;position:absolute; z-index:1000;height:100%;width:100%;background-color:#808080;opacity:0.3;}
+.overlayBackground { top:0px; left:0px; padding-left:100px;position:absolute; z-index:1000;height:100%;width:100%;background-color:#000;opacity:0.3;}
 .overlayContent { position:absolute; border: 1px solid #000; background-color:#fff; font-weight: bold;height: 100px;width: 300px;z-index:1000;text-align:center;}
 
 
 @media screen and (max-width: 640px) {
 
-    navbar-toggle { 
+    navbar-toggle {
         display: none;
     }
 

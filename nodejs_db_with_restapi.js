@@ -23,9 +23,9 @@ db.serialize(function() {
   context.run(null,"productname",1);
   context.finalize();
 
-  db.run("CREATE TABLE IF NOT EXISTS orders (OrderID INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,OrderName VARCHAR(60),CustomerID INTEGER ,ProductID INTEGER ,FOREIGN KEY (CustomerID) REFERENCES customers(CustomerID), FOREIGN KEY (ProductID) REFERENCES products(ProductID))");
-  var context = db.prepare("insert into orders VALUES (?,?,?,?)");
-  context.run(null,"ordername",1,1);
+  db.run("CREATE TABLE IF NOT EXISTS orders (OrderID INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,OrderName VARCHAR(60),DateOfSale VARCHAR(25), UnitPrice REAL, Quantity INTEGER,CustomerID INTEGER ,ProductID INTEGER ,FOREIGN KEY (CustomerID) REFERENCES customers(CustomerID), FOREIGN KEY (ProductID) REFERENCES products(ProductID))");
+  var context = db.prepare("insert into orders VALUES (?,?,?,?,?,?,?)");
+  context.run(null,"ordername","2012-05-21",0.25,5,1,1);
   context.finalize();
 });
 
@@ -175,7 +175,7 @@ restapi.post('/addcustomer', function(req, res){
 /*---------------------- PRODUCTS ---------------------- */
 
 restapi.get('/products', function(req, res){
-  db.all("select * from products", function(err, rows){
+  db.all("select products.ProductName, products.ProductID,  products.CustomerID, customers.ContactName from products inner join customers on products.CustomerID = customers.CustomerID", function(err, rows){
     if(err !== null){
       next(err);
     }
@@ -262,7 +262,8 @@ restapi.post('/:customerid/addproduct', function(req, res){
 
 /* ---------------------- ORDERS ------------------------- */
 restapi.get('/orders', function(req, res){
-  db.all("select * from orders", function(err, rows){
+  db.all("select OrderName, ProductName, ContactName , DateOfSale, UnitPrice, Quantity from  customers inner join products on customers.CustomerID = products.CustomerID inner join orders on products.ProductID = orders.ProductID", function(err, rows){
+
     if(err !== null){
       next(err);
     }
@@ -280,13 +281,14 @@ restapi.get('/:customerid/:productid/:orderid', function(req, res){
   console.log(req.params.customerid);
   console.log(req.params.productid);
   db.get("SELECT * FROM orders WHERE OrderID =" + req.params.orderid, function(err, row){
-    res.json({ "product": row});
+    res.json({ "order": row});
   });
 });
 
 restapi.delete('/:customerid/:productid/:orderid', function(req, res){
   console.log(req.params.customerId);
   console.log(req.params.productid);
+  console.log(req.params.orderid);
   // db.run("BEGIN TRANSACTION");
   db.run("delete from orders where OrderID =" + req.params.orderid, function(err, row){
     if(err)
@@ -320,14 +322,14 @@ restapi.put('/:customerid/:productid/:orderid', function(req, res){
 });
 
 restapi.post('/:customerid/:productid/addorder', function(req, res){
-  console.log("productName" + req.body.ProductName);
-  console.log("customerId" + req.params.customerid);
-  console.log("customerId iz body- a " +req.body.customerid);
-  console.log("insert into orders (OrderID,OrderName,CustomerID, ProductID)" + "VALUES( null,'" + req.body.OrderName  + "'," + req.params.customerid + "'," + req.params.productid +"");
-  var context = db.prepare("insert into products VALUES (NULL,?,?)");
-  // should check if alreday there is a customer with that id
-  db.run("BEGIN TRANSACTION");
-  db.run("insert into orders (OrderID,OrderName,CustomerID, ProductID)" + "VALUES( null,'" + req.body.OrderName  + "'," + req.params.customerid  + "'," + req.params.productid +")"
+  console.log( req.body.OrderName);
+  console.log(req.body.DateOfSale);
+  console.log( req.body.UnitPrice);
+  console.log( req.body.Quantity);
+  console.log( req.body.CustomerID);
+  console.log(req.body.ProductID);
+  console.log("insert into orders (OrderID,OrderName,DateOfSale,UnitPrice,Quantity,CustomerID, ProductID)" + "VALUES( null,'" + req.body.OrderName  + "','" + req.body.DateOfSale  + "'," + req.body.UnitPrice  + ","+ req.body.Quantity+ ","+  req.body.CustomerID  + "," + req.body.ProductID +"");
+  db.run("insert into orders (OrderID,OrderName,DateOfSale,UnitPrice,Quantity,CustomerID, ProductID)" + "VALUES( null,'" + req.body.OrderName  + "','" + req.body.DateOfSale  + "'," + req.body.UnitPrice  + ","+ req.body.Quantity+ ","+  req.body.CustomerID  + "," + req.body.ProductID +")"
     ,function(err, row)
     {
       if (err){
@@ -340,10 +342,11 @@ restapi.post('/:customerid/:productid/addorder', function(req, res){
         res.status(202);
       }
       res.end();
-    }
-  );
+    });
+/*
   db.run("END");
-  context.finalize();
+*/
+  /*context.finalize();*/
 });
 
 /* --------------------------------------------------------*/

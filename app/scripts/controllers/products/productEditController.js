@@ -15,7 +15,7 @@ angular.module('angularCordovaApp')
     $scope.product ={};
     $scope.author ={};
 
-    $scope.defaultValue = "Default value";
+
 
     $scope.getAllDetailsOfAuthor = function(author){
       return "bla bla " + author.ContactName;
@@ -23,7 +23,8 @@ angular.module('angularCordovaApp')
 
 
     $scope.saveProduct = function(){
-      var id = parseInt($scope.author.CustomerID);
+
+      var id = parseInt($scope.product.CustomerID);
       if(!productId) {
         $http.post("http://localhost:3000/"+ id +"/addproduct",$scope.product)
           .success(function(){
@@ -32,7 +33,8 @@ angular.module('angularCordovaApp')
             $scope.registrForm.$setPristine();
             /*  $scope.author = angular.copy($scope.originForm);
              $scope.registrForm.$setPristine();*/
-            alert("Successfully saved!");
+
+          alert("Successfully saved!");
 
           })
           .error(function(){
@@ -49,7 +51,6 @@ angular.module('angularCordovaApp')
           });
 
       }
-
     };
 
     $scope.deleteProduct = function(){

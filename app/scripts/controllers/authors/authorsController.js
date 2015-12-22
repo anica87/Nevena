@@ -80,7 +80,7 @@ angular.module('angularCordovaApp')
         .success(function(data){
           $scope.authors = data.customers;
           filterAuthors('');
-         // $scope.totalItems =  $scope.authors.length;
+        //  $scope.totalItems =  $scope.authors.length;
         })
         .error(function(data){
           console.log("Error "+ data);
@@ -88,5 +88,5 @@ angular.module('angularCordovaApp')
     };
     init();
 
-   /* $scope.totalRecords = $scope.authors.length;*/
+
   });
