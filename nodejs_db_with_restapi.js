@@ -262,7 +262,7 @@ restapi.post('/:customerid/addproduct', function(req, res){
 
 /* ---------------------- ORDERS ------------------------- */
 restapi.get('/orders', function(req, res){
-  db.all("select OrderName, ProductName, ContactName , DateOfSale, UnitPrice, Quantity from  customers inner join products on customers.CustomerID = products.CustomerID inner join orders on products.ProductID = orders.ProductID", function(err, rows){
+  db.all("select OrderName, ProductName, ContactName , DateOfSale, UnitPrice, Quantity, customers.CustomerID ,  products.ProductID, orders.OrderID  from  customers inner join products on customers.CustomerID = products.CustomerID inner join orders on products.ProductID = orders.ProductID", function(err, rows){
 
     if(err !== null){
       next(err);

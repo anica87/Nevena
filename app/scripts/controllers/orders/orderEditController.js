@@ -14,7 +14,7 @@ angular.module('angularCordovaApp')
     $scope.product ={};
     $scope.author ={};
     $scope.order ={};
-
+   
     $scope.defaultValueAuthor = "bla bla testing";
     $scope.defaultValueProduct = "bla bla  productName";
 
