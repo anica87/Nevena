@@ -11,7 +11,7 @@ angular.module('angularCordovaApp')
 
     $scope.orders = [];
     $scope.filteredOrders=[];
-
+    $scope.ordersTotal = 0.00; // BITNO , for loop be careful, why without i++, is it replaceing with +=
     //paging
     $scope.pageSize = 5;
     $scope.currentPage = 1;
@@ -27,12 +27,35 @@ angular.module('angularCordovaApp')
     $scope.reverse = true;
 
     $scope.searchTextChanged = function(){
-
+        filterOrdersByAuthorOrProductName($scope.searchText);
     };
+    function filterOrdersByAuthorOrProductName(searchText){
+      if(!searchText){
+
+      }
+      else{
+        $scope.orders =  $filter('orders')(searchText, $scope.orders);
+        $scope.ordersTotal = 0.00
+        for(var i =0; i < $scope.orders.length; i++)
+        {
+          var order =  $scope.orders[i];
+          $scope.ordersTotal += order.UnitPrice * order.Quantity ;
+
+        }
+      }
+
+
+    }
 
     $scope.sort = function(predicate){
       $scope.reverse =($scope.predicate === predicate) ? !$scope.reverse : false;
       $scope.predicate = predicate;
+    };
+
+    $scope.totals = function(){
+      var x =  ($scope.ordersTotal*70)/100;
+      var y =  ($scope.ordersTotal*30)/100;
+      return "Autor: " +  x + "Worker: " + y;
     };
 
 
@@ -40,7 +63,14 @@ angular.module('angularCordovaApp')
       $http.get("http://localhost:3000/orders")
         .success(function(data){
           $scope.orders = data.orders;
+          filterOrdersByAuthorOrProductName('');
           $scope.filteredCountOrders =  $scope.orders.length;
+          for(var i =0; i< $scope.orders.length; i++)
+          {
+            var order =  $scope.orders[i];
+            $scope.ordersTotal += order.UnitPrice * order.Quantity;
+          }
+
         })
         .error(function(data){
           console.log("Error "+ data);

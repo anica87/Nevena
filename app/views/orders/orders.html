@@ -1,4 +1,4 @@
-<div class="container" ng-controller="ordersController" >
+<div class="container" ng-controller="ordersController" xmlns="http://www.w3.org/1999/html">
   <header>
     <h3>
       <span class="glyphicon glyphicon-folder-open"></span> Orders
@@ -19,10 +19,9 @@
   <div class="row">
     <form class="navbar-form navbar-left">
       <div class="form-group">
-        <label class="navbarText col-sm-2">Filter:</label>
-        <div class="col-sm-10">
-          <input type="text" data-ng-model="searchText" data-ng-change="searchTextChanged();"  placeholder="Enter your search terms" />
-        </div>
+       <!-- <label class="navbarText col-sm-2">Filter:</label>-->
+      <input type="text"  data-ng-model="searchText" data-ng-change="searchTextChanged();"  placeholder="Search for authors, products" />
+
       </div>
     </form>
   </div>
@@ -36,11 +35,12 @@
             <tr>
               <!--<th>&nbsp;</th>-->
               <th> <a href="" ng-click="sort('OrderName')"> Name</a></th>
+              <th><a href="" ng-click="sort('ProductName')"> Product</a></th>
+              <th><a href="" ng-click="sort('ContactName')"> Author</a></th>
               <th><a href="" ng-click="sort('DateOfSale')"> Date</a></th>
               <th><a href="" ng-click="sort('UnitPrice')"> Price</a></th>
               <th><a href="" ng-click="sort('Quantity')"> Quantity</a></th>
-              <th><a href="" ng-click="sort('ProductName')"> Product</a></th>
-              <th><a href="" ng-click="sort('ContactName')"> Author</a></th>
+              <th><a href="" ng-click="sort('Total')"> Total</a></th>
               <th> Action</th>
               <!--<th>&nbsp;</th>-->
             </tr>
@@ -48,14 +48,34 @@
             <tbody>
             <tr data-ng-repeat="order in orders |orderBy :predicate:reverse" class="repeat-animation">
               <td>{{order.OrderName}}</td>
-              <td>{{order.DateOfSale}}</td>
-              <td>{{order.UnitPrice}}</td>
-              <td>{{order.Quantity}}</td>
               <td>{{order.ProductName}}</td>
               <td>{{order.ContactName}}</td>
+              <td>{{order.DateOfSale |date: 'dd/MM/yyyy'}}</td>
+              <td>{{order.UnitPrice}}</td>
+              <td>{{order.Quantity}}</td>
+              <td>{{order.UnitPrice * order.Quantity}}</td>
               <td><a  ng-href="#/orderEdit/{{order.CustomerID}}/{{order.ProductID}}/{{order.OrderID}}" ng-model ="order.OrderID" >Edit</a></td>
             </tr>
+            <tr>
+              <td colspan="6">
+                &nbsp;
+              </td>
+              <!--<td></td><td></td><td></td><td></td><td></td><td></td>-->
+              <td width="150">
+                <d-expand-collapse>
+                  <div><span class="faqPlus"></span><a href="javascript:void(0)" class="question ui-link"><strong>{{ordersTotal}}</strong></a></div>
+                  <div class="answer">
+                    {{totals()}}
+                      <!--Author: {{(ordersTotal*70)/100}};</br>
+                      Worker: {{(ordersTotal*30)/100}};-->
+                    </div>
+                  </div>
+                </d-expand-collapse>
+              </td>
+              <td></td>
+            </tr>
             </tbody>
+
           </table>
          <!-- <pagination total-items="filteredCountOrders" ng-model="currentPage"
                       max-size="5" boundary-links="true"

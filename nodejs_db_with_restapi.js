@@ -304,10 +304,12 @@ restapi.delete('/:customerid/:productid/:orderid', function(req, res){
 
 restapi.put('/:customerid/:productid/:orderid', function(req, res){
   console.log(req.params.customerid);
-  console.log(req.params.productid);
-  console.log(JSON.stringify(req.body.author));
-  console.log("update order set  OrderName ='" +req.body.ProductName+ "' where ProductID = " + req.params.orderid);
-  db.run("update order set  OrderName ='" +req.body.OrderName + "' where OrderID = " + req.params.orderid,  function(err, row){
+  console.log(req.body.OrderName);
+  console.log(req.body.Quantity);
+  console.log(JSON.stringify(req.body.OrderName));
+  console.log("update orders set  OrderName ='" +req.body.OrderName+ "' where OrderID = " + req.params.orderid);
+  console.log("update orders set  OrderName ='"+req.body.OrderName + "', Quantity="+req.body.Quantity+ " where OrderID = " + req.params.orderid);
+  db.run("update orders set  OrderName ='"+req.body.OrderName + "', Quantity="+req.body.Quantity+ " where OrderID = " + req.params.orderid,  function(err, row){
       if(err)
       {
         console.log("there is the bug");

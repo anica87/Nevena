@@ -379,4 +379,6 @@ input.ng-valid, select.ng-valid, input.ng-valid-required, select.ng-valid.requir
         padding-left: 5px;
     }
 
+    .answer{display: none}
+
 }

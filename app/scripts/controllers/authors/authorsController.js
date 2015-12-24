@@ -12,7 +12,7 @@ angular.module('angularCordovaApp')
     //paging
     $scope.pageSize = 5;
     $scope.currentPage = 1;
-    $scope.numPerPage = 10;
+    $scope.numPerPage = 100;
 
     var idParam = $routeParams.id;
     $scope.authors = [];

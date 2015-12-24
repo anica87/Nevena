@@ -23,7 +23,6 @@ var fs = require('fs');*/
     'ngSanitize',
     'ngTouch',
     'ui.bootstrap'
-
   ])
 
   .config(function ($routeProvider) {

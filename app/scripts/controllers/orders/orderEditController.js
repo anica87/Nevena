@@ -14,7 +14,7 @@ angular.module('angularCordovaApp')
     $scope.product ={};
     $scope.author ={};
     $scope.order ={};
-   
+    $scope.order.DateOfSale = moment();
     $scope.defaultValueAuthor = "bla bla testing";
     $scope.defaultValueProduct = "bla bla  productName";
 
@@ -45,7 +45,7 @@ angular.module('angularCordovaApp')
           });
       }
       else {
-        $http.put("http://localhost:3000/"+ customerid + "/" + productId, $scope.product)
+        $http.put("http://localhost:3000/"+ customerid + "/" + productId +"/" + orderid , $scope.order)
           .success(function(data){
             alert("Successfully updated!")
           })
