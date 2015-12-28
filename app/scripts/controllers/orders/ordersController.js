@@ -12,10 +12,14 @@ angular.module('angularCordovaApp')
     $scope.orders = [];
     $scope.filteredOrders=[];
     $scope.ordersTotal = 0.00; // BITNO , for loop be careful, why without i++, is it replaceing with +=
+
     //paging
     $scope.pageSize = 5;
     $scope.currentPage = 1;
     $scope.numPerPage = 10;
+
+    $scope.startDate =  moment();
+    $scope.endDate = moment();
 
     $scope.navigate = function(url){
       $location.path(url);

@@ -1,5 +1,5 @@
 angular.module('angularCordovaApp')
-  .directive("calendar", function(){
+  .directive("calendar", function($filter){
     return {
       restrict: "E",
       templateUrl: "scripts/customDirectives/calendar.html",
@@ -17,7 +17,8 @@ angular.module('angularCordovaApp')
         _buildMonth(scope, start, scope.month);
 
         scope.select = function(day) {
-          scope.selected = day.date;
+           scope.selected = day.date;
+        /*  scope.selected = $filter('date')(day.date, 'yyyy');*/
         };
 
         scope.next = function() {
@@ -37,7 +38,8 @@ angular.module('angularCordovaApp')
   };
 
     function _removeTime(date) {
-      return date.day(0).hour(0).minute(0).second(0).millisecond(0);
+     /* return date.day(0).hour(0).minute(0).second(0).millisecond(0);*/
+      return date.day(0);
     }
 
     function _buildMonth(scope, start, month) {
