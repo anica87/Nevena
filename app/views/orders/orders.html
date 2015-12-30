@@ -25,7 +25,7 @@
 
   <div class="row">
     <div class="col-md-1">
-     Start Date:
+     Period:
     </div>
     <div class="col-md-3">
       <!--   <input type="text" name="firstName" class="form-control" data-ng-model="startDate"/>-->
@@ -33,7 +33,8 @@
       <div class="dropdown">
         <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#" >
           <!--  href="#"-->
-          <div class="input-group"><input type="text" uib-datepicker-popup="mediumDate" date class="form-control" data-ng-model="startDate">
+          <div class="input-group">
+            <input type="text" class="form-control" date='yyyy-MM-dd' data-ng-model="formatStartDate()">
             <span class="input-group-addon">
               <i class="glyphicon glyphicon-calendar"></i>
             </span>
@@ -44,19 +45,15 @@
         </ul>
       </div>
       </div>
-  </div>
 
-
-  <div class="row">
-    <div class="col-md-1">
-    End Date:
-    </div>
     <div class="col-md-3">
+      <!--   <input type="text" name="firstName" class="form-control" data-ng-model="startDate"/>-->
+
       <div class="dropdown">
         <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" >
           <!--  href="#"-->
           <div class="input-group">
-            <input type="text" class="form-control" data-ng-model="endDate">
+            <input type="text" class="form-control"  data-ng-model="formatEndDate()">
             <span class="input-group-addon">
               <i class="glyphicon glyphicon-calendar"></i>
             </span>
@@ -64,12 +61,15 @@
         </a>
         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
           <calendar data-ng-model="endDate" selected="endDate" ></calendar>
-
         </ul>
       </div>
     </div>
   </div>
-
+  <div class="col-md-3">
+    <button class="btn-default" type="submit" data-ng-click="searchButton()">
+      Search
+    </button>
+  </div>
   <div >
 
     <div  class="row gridContainer customersTable show-hide-animation" >
@@ -95,7 +95,7 @@
               <td>{{order.OrderName}}</td>
               <td>{{order.ProductName}}</td>
               <td>{{order.ContactName}}</td>
-              <td>{{order.DateOfSale |date: 'dd/MM/yyyy'}}</td>
+              <td>{{order.DateOfSale |date: 'yyyy-MM-dd'}}</td>
               <td>{{order.UnitPrice}}</td>
               <td>{{order.Quantity}}</td>
               <td>{{order.UnitPrice * order.Quantity}}</td>
