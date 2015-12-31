@@ -18,7 +18,6 @@ angular.module('angularCordovaApp')
 
         scope.select = function(day) {
            scope.selected = day.date;
-        /*  scope.selected = $filter('date')(day.date, 'yyyy');*/
         };
 
         scope.next = function() {
