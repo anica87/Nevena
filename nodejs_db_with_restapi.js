@@ -130,7 +130,8 @@ restapi.put('/customers/:id', function(req, res){
   console.log(req.params.id);
   console.log(JSON.stringify(req.body.author));
   console.log("update customers set  CompanyName ='" +req.body.CompanyName+ "' where CustomerID = " + req.params.id);
-  db.run("update customers set  CompanyName ='" +req.body.CompanyName+ "' where CustomerID = " + req.params.id,  function(err, row){
+  console.log( "update customers set CompanyName = '" +req.body.CompanyName+ " ',  ContactName = '"+req.body.ContactName+" ', ContactTitle = ' "+req.body.ContactTitle+" ', Address = '" +req.body.Address + "', City = '"+req.body.City +"', State = '"+req.body.State +"'  where " + req.params.id);
+  db.run("update customers set CompanyName = '" +req.body.CompanyName+ " ',  ContactName = '"+req.body.ContactName+" ', ContactTitle = ' "+req.body.ContactTitle+" ', Address = '" +req.body.Address + "', City = '"+req.body.City +"', State = '"+req.body.State +"'  where CustomerID = " + req.params.id,  function(err, row){
       if(err)
       {
         console.log("there is the bug");
