@@ -34,7 +34,7 @@
         <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#" >
           <!--  href="#"-->
           <div class="input-group">
-            <input type="text" class="form-control" date='yyyy-MM-dd' data-ng-model="formatStartDate()">
+            <input type="text" class="form-control"  data-ng-model="formatStartDate()">
             <span class="input-group-addon">
               <i class="glyphicon glyphicon-calendar"></i>
             </span>
@@ -77,16 +77,16 @@
         <div>
           <table class="table table-striped table-condensed">
             <thead>
-            <tr>
+            <tr  >
               <!--<th>&nbsp;</th>-->
-              <th> <a href="" ng-click="sort('OrderName')"> Name</a></th>
-              <th><a href="" ng-click="sort('ProductName')"> Product</a></th>
-              <th><a href="" ng-click="sort('ContactName')"> Author</a></th>
-              <th><a href="" ng-click="sort('DateOfSale')"> Date</a></th>
-              <th><a href="" ng-click="sort('UnitPrice')"> Price</a></th>
-              <th><a href="" ng-click="sort('Quantity')"> Quantity</a></th>
-              <th><a href="" ng-click="sort('Total')"> Total</a></th>
-              <th> Action</th>
+              <th> <a class="test" href="" ng-click="sort('OrderName')"> Name</a></th>
+              <th><a class="test" href="" ng-click="sort('ProductName')"> Product</a></th>
+              <th><a class="test" href="" ng-click="sort('ContactName')"> Author</a></th>
+              <th><a class="test" href="" ng-click="sort('DateOfSale')"> Date</a></th>
+              <th><a class="test" href="" ng-click="sort('UnitPrice')"> Price</a></th>
+              <th><a class="test"  href="" ng-click="sort('Quantity')"> Quantity</a></th>
+              <th><a class="test" href="" ng-click="sort('Total')"> Total</a></th>
+              <th class="test" > Action</th>
               <!--<th>&nbsp;</th>-->
             </tr>
             </thead>
@@ -95,7 +95,7 @@
               <td>{{order.OrderName}}</td>
               <td>{{order.ProductName}}</td>
               <td>{{order.ContactName}}</td>
-              <td>{{order.DateOfSale |date: 'yyyy-MM-dd'}}</td>
+              <td>{{order.DateOfSale |date: 'dd-MM-yyyy'}}</td>
               <td>{{order.UnitPrice}}</td>
               <td>{{order.Quantity}}</td>
               <td>{{order.UnitPrice * order.Quantity}}</td>

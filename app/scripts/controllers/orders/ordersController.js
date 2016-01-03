@@ -18,33 +18,33 @@ angular.module('angularCordovaApp')
     $scope.currentPage = 1;
     $scope.numPerPage = 10;
 
-    //$scope.startDate =  moment().format('dd/MM/yyyy');
-    //$scope.endDate = moment().format('dd/MM/yyyy');
     $scope.startDate =  moment();
     $scope.endDate = moment();
-    $scope.day = moment();
+    //$scope.day = moment();
 
     $scope.searchButton = function(){
       var matches = [];
       angular.forEach($scope.orders, function(order){
-        var dateOfSale = new Date(order.DateOfSale).toISOString().slice(0, 10);
-        var start  = new Date($scope.startDate).toISOString().slice(0, 10);
-        var end = new Date($scope.endDate).toISOString().slice(0, 10);
-        if(dateOfSale>=start && dateOfSale<=end)
+        var dateOfSale = new Date(order.DateOfSale);
+        var start  = new Date($scope.startDate);
+        var end = new Date($scope.endDate);
+        if(dateOfSale >= start && dateOfSale <= end)
         {
-          matches.push(dateOfSale);
+          matches.push(order);
         }
 
       });
-      alert(matches);
+      $scope.orders =matches;
     };
 
     $scope.formatStartDate = function(){
-      return new Date($scope.startDate).toISOString().slice(0, 10);
+      var beingDate = new Date($scope.startDate).toLocaleDateString("en-US");
+      return beingDate;
+
     };
 
     $scope.formatEndDate = function(){
-      return new Date($scope.endDate).toISOString().slice(0, 10);
+      return new Date($scope.endDate).toLocaleDateString("en-US");
     };
 
     $scope.navigate = function(url){

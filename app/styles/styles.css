@@ -382,3 +382,19 @@ input.ng-valid, select.ng-valid, input.ng-valid-required, select.ng-valid.requir
     .answer{display: none}
 
 }
+
+.test {
+  color: #FFFFFF;
+}
+.test:hover{
+  color: #ffffff;
+  text-decoration: none;
+}
+.test:visited{
+  color: #ffffff;
+  text-decoration: none;
+}
+.test:active{
+  color: #ffffff;
+  text-decoration: none;
+}
