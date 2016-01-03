@@ -21,8 +21,7 @@ var fs = require('fs');*/
     'ngResource',
     'ngRoute',
     'ngSanitize',
-    'ngTouch',
-    'ui.bootstrap'
+    'ngTouch'
   ])
 
   .config(function ($routeProvider) {
