@@ -22,6 +22,17 @@ angular.module('angularCordovaApp')
     $scope.endDate = moment();
     //$scope.day = moment();
 
+    $scope.roles = [
+      {"id": 1, "name": "Manager", "assignable": true},
+      {"id": 2, "name": "Developer", "assignable": true},
+      {"id": 3, "name": "Reporter", "assignable": true}
+    ];
+
+    $scope.member = {roles: []};
+    $scope.selected_items = [];
+
+   // $scope.selectedOptions = [];
+
     $scope.searchButton = function(){
       var matches = [];
       angular.forEach($scope.orders, function(order){
@@ -38,13 +49,14 @@ angular.module('angularCordovaApp')
     };
 
     $scope.formatStartDate = function(){
-      var beingDate = new Date($scope.startDate).toLocaleDateString("en-US");
-      return beingDate;
+     // return new Date($scope.startDate).toLocaleDateString("en-US");
+      return new Date($scope.startDate);
 
     };
 
     $scope.formatEndDate = function(){
-      return new Date($scope.endDate).toLocaleDateString("en-US");
+     // return new Date($scope.endDate).toLocaleDateString("en-US");
+      return new Date($scope.endDate);
     };
 
     $scope.navigate = function(url){
@@ -69,12 +81,9 @@ angular.module('angularCordovaApp')
         for(var i =0; i < $scope.orders.length; i++)
         {
           var order =  $scope.orders[i];
-          $scope.ordersTotal += order.UnitPrice * order.Quantity ;
-
+          $scope.ordersTotal += order.UnitPrice * order.Quantity;
         }
       }
-
-
     }
 
     $scope.sort = function(predicate){
