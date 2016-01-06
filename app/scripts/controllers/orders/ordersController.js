@@ -28,7 +28,7 @@ angular.module('angularCordovaApp')
       {"id": 3, "name": "Reporter", "assignable": true}
     ];
 
-    $scope.member = {roles: []};
+    $scope.member = {authors: []};
     $scope.selected_items = [];
 
    // $scope.selectedOptions = [];

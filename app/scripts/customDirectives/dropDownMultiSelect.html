@@ -42,22 +42,20 @@ open the control over the the existing
 
 <div data-ng-class ='{open: open}'>
   <button class="btn" data-ng-click="open =!open; toggleSelect()">
-    <span class="pull-left">Select 3</span>&nbsp;<span class="caret pull-right"></span>
+  <span class="pull-left">Select 3</span>&nbsp;<span class="caret pull-right"></span>
   </button>
 
   <!--<div class="multiselect-wrapper" ng-show="isVisible">-->
   <ul class='dropdown-menu' aria-labelledby='dropdownMenu' ng-show="isVisible">
-  <!--  <li><a data-ng-click='selectAll()'><i class='icon-ok-sign'></i>  Check All</a></li>
+  <li> <input type="text"  ng-model="searchText" autofocus="autofocus"/></li>
+  <li><a data-ng-click='selectAll()'><i class='icon-ok-sign'></i>  Check All</a></li>
     <li><a data-ng-click='deselectAll();'><i class='icon-remove-sign'></i>  Uncheck All</a></li>
-    <li class='divider'></li>"-->
+    <li class='divider'></li>
    <!-- <li data-ng-repeat='option in options'> <a data-ng-click='setSelectedItem()'>{{option.name}}<span data-ng-class='isChecked(option.id)'></span></a></li>-->
     <li ng-repeat="option in options">
-      <label class="checkbox"><input type="checkbox" ng-click="toggleChaeck(option.id)" ng-checked="isChecked(option.id)" />{{option.name}}</label>
+      <label class="checkbox"><input type="checkbox" ng-click="toggleChaeck(option.CustomerID)" ng-checked="isChecked(option.CustomerID)" />{{option.ContactName}}</label>
     </li>
   </ul>
   </div>
 </div>
 
-<div ng-class="{active: is_active}">Some div</div>
-
-<button ng-click="is_active = !is_active" ng-init="is_active=false">Click to toggle</button>

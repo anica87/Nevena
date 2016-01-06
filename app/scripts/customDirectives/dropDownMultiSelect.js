@@ -50,8 +50,8 @@ angular.module('angularCordovaApp')
      require: '?ngModel',
      scope: {
      model: '=',
-     options: '=',
-     pre_selected: '=preSelected'
+     options: '='
+    // ,pre_selected: '=preSelected'
      },
 
      templateUrl: "scripts/customDirectives/dropDownMultiSelect.html",
@@ -73,12 +73,12 @@ angular.module('angularCordovaApp')
 
         scope.openDropDown = function () {
           scope.selected_items = [];
-          for(var i = 0; i<= scope.pre_selected.length; i++){
+         /* for(var i = 0; i<= scope.pre_selected.length; i++){
             scope.selected_items.push(scope.pre_selected[i]);
-          }
+          }*/
         };
         scope.selectAll = function(){
-          scope.model = _.pluck(scope.options, 'id');
+          scope.model = _.pluck(scope.options, 'CustomerID');
           console.log(scope.model);
         };
 
@@ -87,7 +87,7 @@ angular.module('angularCordovaApp')
         };
 
         scope.setSelectedItem = function(){
-          var id = this.option.id;
+          var id = this.option.CustomerID;
           if (_.contains(scope.model, id)) {
             scope.model = _.without(scope.model, id);
           } else {
@@ -97,26 +97,26 @@ angular.module('angularCordovaApp')
           return false;
         };
 
-        scope.isChecked = function(id){
+/*        scope.isChecked = function(id){
           if (_.contains(scope.model, id)) {
             return 'icon-ok pull-right';
           }
           return false;
-        };
+        };*/
 
-/*        scope.isChecked = function (item) {
+        scope.isChecked = function (item) {
           if (scope.selected.indexOf(item) !== -1) {
             return true;
           }
           return false;
-        };*/
-/*        scope.toggleChaeck = function (item) {
+        };
+        scope.toggleChaeck = function (item) {
           if (!scope.isChecked(item)) {
             scope.selected.push(item);
           } else {
             scope.selected.splice(scope.selected.indexOf(item), 1);
           }
-        };*/
+        };
     },
      controller: function ($scope){
 /*     $scope.openDropDown = function () {
