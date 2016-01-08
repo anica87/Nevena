@@ -40,22 +40,25 @@ open the control over the the existing
 </div>
 <br/>-->
 
-<div data-ng-class ='{open: open}'>
-  <button class="btn" data-ng-click="open =!open; toggleSelect()">
-  <span class="pull-left">Select 3</span>&nbsp;<span class="caret pull-right"></span>
+<div data-ng-class ='{open: open}' >
+  <button   data-ng-click="open =!open; toggleSelect()">
+ <!-- <span class="pull-left">Select </span>&nbsp;<span class="caret pull-right"></span>-->
+    <span class="pull-left" >Select Authors... </span>
+    &nbsp;
+    <span class='caret -pull-right'></span>
   </button>
 
   <!--<div class="multiselect-wrapper" ng-show="isVisible">-->
-  <ul class='dropdown-menu' aria-labelledby='dropdownMenu' ng-show="isVisible">
-  <li> <input type="text"  ng-model="searchText" autofocus="autofocus"/></li>
-  <li><a data-ng-click='selectAll()'><i class='icon-ok-sign'></i>  Check All</a></li>
-    <li><a data-ng-click='deselectAll();'><i class='icon-remove-sign'></i>  Uncheck All</a></li>
+  <ul  class='dropdown-menu' aria-labelledby='dropdownMenu' ng-show="isVisible">
+    <li><input type="text"  ng-model="search" autofocus="autofocus"/></li>
+    <li><a data-ng-click='selectAll()'><i class='glyphicon glyphicon-ok'></i>  Check All</a></li>
+    <li><a data-ng-click='deselectAll();'><i class='glyphicon glyphicon-remove'></i>  Uncheck All</a></li>
     <li class='divider'></li>
    <!-- <li data-ng-repeat='option in options'> <a data-ng-click='setSelectedItem()'>{{option.name}}<span data-ng-class='isChecked(option.id)'></span></a></li>-->
-    <li ng-repeat="option in options">
+    <li ng-repeat="option in options | filter : search">
       <label class="checkbox"><input type="checkbox" ng-click="toggleChaeck(option.CustomerID)" ng-checked="isChecked(option.CustomerID)" />{{option.ContactName}}</label>
     </li>
   </ul>
-  </div>
 </div>
+
 

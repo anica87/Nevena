@@ -60,6 +60,7 @@ angular.module('angularCordovaApp')
 
         element.bind('click', function (event) {
           event.stopPropagation();
+
         });
 
         $document.bind('click', function () {
@@ -73,17 +74,13 @@ angular.module('angularCordovaApp')
 
         scope.openDropDown = function () {
           scope.selected_items = [];
-         /* for(var i = 0; i<= scope.pre_selected.length; i++){
-            scope.selected_items.push(scope.pre_selected[i]);
-          }*/
         };
         scope.selectAll = function(){
           scope.model = _.pluck(scope.options, 'CustomerID');
-          console.log(scope.model);
         };
 
         scope.deselectAll = function(){
-          $scope.model = [];
+          scope.model = [];
         };
 
         scope.setSelectedItem = function(){
@@ -97,24 +94,24 @@ angular.module('angularCordovaApp')
           return false;
         };
 
-/*        scope.isChecked = function(id){
+        scope.isChecked = function(id){
           if (_.contains(scope.model, id)) {
             return 'icon-ok pull-right';
           }
           return false;
-        };*/
+        };
 
-        scope.isChecked = function (item) {
+/*        scope.isChecked = function (item) {
           if (scope.selected.indexOf(item) !== -1) {
             return true;
           }
           return false;
-        };
+        };*/
         scope.toggleChaeck = function (item) {
           if (!scope.isChecked(item)) {
-            scope.selected.push(item);
+            scope.model.push(item);
           } else {
-            scope.selected.splice(scope.selected.indexOf(item), 1);
+            scope.model.splice(scope.model.indexOf(item), 1);
           }
         };
     },

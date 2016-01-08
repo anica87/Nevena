@@ -14,17 +14,15 @@
     </ul>
   </div>
 
-  <div class="row">
-       <!-- <label class="navbarText col-sm-2">Filter:</label>-->
-      <input class="col-md-10" type="text"  data-ng-model="searchText" data-ng-change="searchTextChanged();"  placeholder="Search for authors, products" />
-  </div>
 
+  <containter>
   <div class="row">
     <div class="col-md-2">
 <!--
       <dropdown-multiselect pre-selected="member.authors" model="selected_items" options="authors"></dropdown-multiselect>
 -->
       <dropdown-multiselect  model="selected_items" options="authors"></dropdown-multiselect>
+
     </div>
     <div class="col-md-1">
       Period:
@@ -65,72 +63,67 @@
         </ul>
       </div>
     </div>
-    <div class="col-md-2">
-      <button class="btn-default" type="submit" data-ng-click="searchButton()">
+    <div>
+    <div class="col-lg-2">
+      <button class="btn-group" type="submit" data-ng-click="searchButton()">
         Search
       </button>
     </div>
-  </div>
-<div>
-  </div>
-  <div>
-    <div  class="row gridContainer customersTable show-hide-animation" >
-      <div class="col-md-10">
-        <div>
-          <table class="table table-striped table-condensed">
-            <thead>
-            <tr  >
-              <!--<th>&nbsp;</th>-->
-              <th> <a class="test" href="" ng-click="sort('OrderName')"> Name</a></th>
-              <th><a class="test" href="" ng-click="sort('ProductName')"> Product</a></th>
-              <th><a class="test" href="" ng-click="sort('ContactName')"> Author</a></th>
-              <th><a class="test" href="" ng-click="sort('DateOfSale')"> Date</a></th>
-              <th><a class="test" href="" ng-click="sort('UnitPrice')"> Price</a></th>
-              <th><a class="test"  href="" ng-click="sort('Quantity')"> Quantity</a></th>
-              <th><a class="test" href="" ng-click="sort('Total')"> Total</a></th>
-              <th class="test" > Action</th>
-              <!--<th>&nbsp;</th>-->
-            </tr>
-            </thead>
-            <tbody>
-            <tr data-ng-repeat="order in orders |orderBy :predicate:reverse" class="repeat-animation">
-              <td>{{order.OrderName}}</td>
-              <td>{{order.ProductName}}</td>
-              <td>{{order.ContactName}}</td>
-              <td>{{order.DateOfSale |date: 'dd-MM-yyyy'}}</td>
-              <td>{{order.UnitPrice}}</td>
-              <td>{{order.Quantity}}</td>
-              <td>{{order.UnitPrice * order.Quantity}}</td>
-              <td><a  ng-href="#/orderEdit/{{order.CustomerID}}/{{order.ProductID}}/{{order.OrderID}}" ng-model ="order.OrderID" >Edit</a></td>
-            </tr>
-            <tr>
-              <td colspan="6">
-                &nbsp;
-              </td>
-              <!--<td></td><td></td><td></td><td></td><td></td><td></td>-->
-              <td width="150">
-                <d-expand-collapse>
-                  <div><span class="faqPlus"></span><a href="javascript:void(0)" class="question ui-link"><strong>{{ordersTotal}}</strong></a></div>
-                  <div class="answer">
-                    {{totals()}}
-                      <!--Author: {{(ordersTotal*70)/100}};</br>
-                      Worker: {{(ordersTotal*30)/100}};-->
-                    </div>
-                  </div>
-                </d-expand-collapse>
-              </td>
-              <td></td>
-            </tr>
-            </tbody>
-
-          </table>
-         <!-- <pagination total-items="filteredCountOrders" ng-model="currentPage"
-                      max-size="5" boundary-links="true"
-                      items-per-page="numPerPage" class="pagination-sm">
-          </pagination>-->
-        </div>
-      </div>
-
     </div>
+  </div>
+ </containter>
+
+  <div class="row   testingPadding">
+    <input  type="text" class="sizeOftext" data-ng-model="searchText" data-ng-change="searchTextChanged();"  placeholder="Search for authors, products" />
+  </div>
+
+  <div class="row gridContainer customersTable">
+      <table class="table table-striped table-condensed table-">
+        <thead>
+        <tr>
+          <!--<th>&nbsp;</th>-->
+          <th> <a class="test" href="" ng-click="sort('OrderName')"> Name</a></th>
+          <th><a class="test" href="" ng-click="sort('ProductName')"> Product</a></th>
+          <th><a class="test" href="" ng-click="sort('ContactName')"> Author</a></th>
+          <th><a class="test" href="" ng-click="sort('DateOfSale')"> Date</a></th>
+          <th><a class="test" href="" ng-click="sort('UnitPrice')"> Price</a></th>
+          <th><a class="test"  href="" ng-click="sort('Quantity')"> Quantity</a></th>
+          <th><a class="test" href="" ng-click="sort('Total')"> Total</a></th>
+          <th class="test" > Action</th>
+          <!--<th>&nbsp;</th>-->
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-ng-repeat="order in orders |orderBy :predicate:reverse" class="repeat-animation">
+          <td>{{order.OrderName}}</td>
+          <td>{{order.ProductName}}</td>
+          <td>{{order.ContactName}}</td>
+          <td>{{order.DateOfSale |date: 'dd-MM-yyyy'}}</td>
+          <td>{{order.UnitPrice}}</td>
+          <td>{{order.Quantity}}</td>
+          <td>{{order.UnitPrice * order.Quantity}}</td>
+          <td><a  ng-href="#/orderEdit/{{order.CustomerID}}/{{order.ProductID}}/{{order.OrderID}}" ng-model ="order.OrderID" >Edit</a></td>
+        </tr>
+        <tr>
+          <td colspan="6">
+            &nbsp;
+          </td>
+          <td width="150">
+            <d-expand-collapse>
+              <div>
+                <span class="faqPlus"></span>
+                <a href="javascript:void(0)" class="question ui-link">
+                  <strong>{{ordersTotal}}</strong>
+                </a>
+              </div>
+              <div class="answer">
+                {{totals()}}
+              </div>
+            </d-expand-collapse>
+          </td>
+          <td></td>
+        </tr>
+        </tbody>
+      </table>
   </div>
 </div>

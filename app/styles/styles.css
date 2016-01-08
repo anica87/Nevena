@@ -398,3 +398,12 @@ input.ng-valid, select.ng-valid, input.ng-valid-required, select.ng-valid.requir
   color: #ffffff;
   text-decoration: none;
 }
+
+.testingPadding{
+  margin-bottom: 10px;
+  width: 200px;
+}
+
+.sizeOftext{
+  width:  1100px;
+}

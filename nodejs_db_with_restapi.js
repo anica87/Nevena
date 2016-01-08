@@ -14,19 +14,19 @@ db.serialize(function() {
 
 
   var context = db.prepare("insert into customers VALUES (?,?,?,?,?,?,?)");
-  context.run(null,"company", "contact", "title", "address" , "City", "IL");
+  /*context.run(null,"company", "contact", "title", "address" , "City", "IL");
   context.finalize();
-  db.run("PRAGMA foreign_keys = ON");
+  db.run("PRAGMA foreign_keys = ON");*/
 
   db.run("CREATE TABLE IF NOT EXISTS products (ProductID INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,ProductName VARCHAR(60), CustomerID INTEGER ,FOREIGN KEY (CustomerID) REFERENCES customers(CustomerID))");
-  var context = db.prepare("insert into products VALUES (?,?,?)");
+ /* var context = db.prepare("insert into products VALUES (?,?,?)");
   context.run(null,"productname",1);
-  context.finalize();
+  context.finalize();*/
 
   db.run("CREATE TABLE IF NOT EXISTS orders (OrderID INTEGER NOT NULL PRIMARY KEY  AUTOINCREMENT,OrderName VARCHAR(60),DateOfSale VARCHAR(25), UnitPrice REAL, Quantity INTEGER,CustomerID INTEGER ,ProductID INTEGER ,FOREIGN KEY (CustomerID) REFERENCES customers(CustomerID), FOREIGN KEY (ProductID) REFERENCES products(ProductID))");
-  var context = db.prepare("insert into orders VALUES (?,?,?,?,?,?,?)");
+/*  var context = db.prepare("insert into orders VALUES (?,?,?,?,?,?,?)");
   context.run(null,"ordername","2012-05-21",0.25,5,1,1);
-  context.finalize();
+  context.finalize();*/
 });
 
 
@@ -263,7 +263,7 @@ restapi.post('/:customerid/addproduct', function(req, res){
 
 /* ---------------------- ORDERS ------------------------- */
 restapi.get('/orders', function(req, res){
-  db.all("select OrderName, ProductName, ContactName , DateOfSale, UnitPrice, Quantity, customers.CustomerID ,  products.ProductID, orders.OrderID  from  customers inner join products on customers.CustomerID = products.CustomerID inner join orders on products.ProductID = orders.ProductID", function(err, rows){
+  db.all("select OrderName, ProductName, ContactName , DateOfSale, UnitPrice, Quantity, customers.CustomerID ,  products.ProductID, orders.OrderID from  orders  inner join products on products.ProductID = orders.ProductID   inner join customers on customers.CustomerID = orders.CustomerID", function(err, rows){
 
     if(err !== null){
       next(err);
