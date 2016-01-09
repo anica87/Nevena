@@ -28,35 +28,51 @@ angular.module('angularCordovaApp')
       {"id": 3, "name": "Reporter", "assignable": true}
     ];
 
-    $scope.member = {roles: []};
+    $scope.member = {authors: []};
     $scope.selected_items = [];
+
+    var calculateOrdersTotal = function(){
+      $scope.ordersTotal = 0.00
+      for(var i =0; i < $scope.orders.length; i++)
+      {
+        var order =  $scope.orders[i];
+        $scope.ordersTotal += order.UnitPrice * order.Quantity;
+      }
+    };
 
    // $scope.selectedOptions = [];
 
     $scope.searchButton = function(){
       var matches = [];
-      angular.forEach($scope.orders, function(order){
-        var dateOfSale = new Date(order.DateOfSale);
-        var start  = new Date($scope.startDate);
-        var end = new Date($scope.endDate);
-        if(dateOfSale >= start && dateOfSale <= end)
-        {
-          matches.push(order);
-        }
+      angular.forEach($scope.orders, function(order) {
+        angular.forEach($scope.selected_items, function(authorID) {
+          if(authorID ==  order.CustomerID){
+            var dateOfSale = new Date(order.DateOfSale);
+            var start = new Date($scope.startDate);
+            var end = new Date($scope.endDate);
+            if (dateOfSale >= start && dateOfSale <= end ) {
+              matches.push(order);
+            }
+            else{
+              console.log("nothing found");
+            }
+          }
 
+        });
       });
       $scope.orders =matches;
+      calculateOrdersTotal();
     };
 
     $scope.formatStartDate = function(){
-     // return new Date($scope.startDate).toLocaleDateString("en-US");
-      return new Date($scope.startDate);
+     return new Date($scope.startDate).toLocaleDateString("en-US");
+     // return new Date($scope.startDate);
 
     };
 
     $scope.formatEndDate = function(){
-     // return new Date($scope.endDate).toLocaleDateString("en-US");
-      return new Date($scope.endDate);
+     return new Date($scope.endDate).toLocaleDateString("en-US");
+      //return new Date($scope.endDate);
     };
 
     $scope.navigate = function(url){
@@ -77,14 +93,12 @@ angular.module('angularCordovaApp')
       }
       else{
         $scope.orders =  $filter('orders')(searchText, $scope.orders);
-        $scope.ordersTotal = 0.00
-        for(var i =0; i < $scope.orders.length; i++)
-        {
-          var order =  $scope.orders[i];
-          $scope.ordersTotal += order.UnitPrice * order.Quantity;
-        }
+        calculateOrdersTotal();
       }
     }
+
+
+
 
     $scope.sort = function(predicate){
       $scope.reverse =($scope.predicate === predicate) ? !$scope.reverse : false;

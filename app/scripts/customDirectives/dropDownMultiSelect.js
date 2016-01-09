@@ -50,8 +50,8 @@ angular.module('angularCordovaApp')
      require: '?ngModel',
      scope: {
      model: '=',
-     options: '=',
-     pre_selected: '=preSelected'
+     options: '='
+    // ,pre_selected: '=preSelected'
      },
 
      templateUrl: "scripts/customDirectives/dropDownMultiSelect.html",
@@ -60,6 +60,7 @@ angular.module('angularCordovaApp')
 
         element.bind('click', function (event) {
           event.stopPropagation();
+
         });
 
         $document.bind('click', function () {
@@ -73,21 +74,17 @@ angular.module('angularCordovaApp')
 
         scope.openDropDown = function () {
           scope.selected_items = [];
-          for(var i = 0; i<= scope.pre_selected.length; i++){
-            scope.selected_items.push(scope.pre_selected[i]);
-          }
         };
         scope.selectAll = function(){
-          scope.model = _.pluck(scope.options, 'id');
-          console.log(scope.model);
+          scope.model = _.pluck(scope.options, 'CustomerID');
         };
 
         scope.deselectAll = function(){
-          $scope.model = [];
+          scope.model = [];
         };
 
         scope.setSelectedItem = function(){
-          var id = this.option.id;
+          var id = this.option.CustomerID;
           if (_.contains(scope.model, id)) {
             scope.model = _.without(scope.model, id);
           } else {
@@ -110,13 +107,13 @@ angular.module('angularCordovaApp')
           }
           return false;
         };*/
-/*        scope.toggleChaeck = function (item) {
+        scope.toggleChaeck = function (item) {
           if (!scope.isChecked(item)) {
-            scope.selected.push(item);
+            scope.model.push(item);
           } else {
-            scope.selected.splice(scope.selected.indexOf(item), 1);
+            scope.model.splice(scope.model.indexOf(item), 1);
           }
-        };*/
+        };
     },
      controller: function ($scope){
 /*     $scope.openDropDown = function () {
