@@ -3,16 +3,17 @@
     <header>
       <h3><span class="glyphicon glyphicon-edit"></span> {{title}} Author</h3>
     </header>
-    <form name="registrForm" role="form">
+    <form name="editForm">
+      <div class="customerEdit">
       <div class="row">
         <div class="col-md-2">
           First Name:
         </div>
         <div class="col-md-10">
-          <input type="text" name="firstName" class="form-control" data-ng-model="author.CompanyName"/>
-                        <!--<span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">-->
-                            <!--First name is required-->
-                        <!--</span>-->
+          <input type="text" name="firstName" class="form-control" data-ng-model="author.CompanyName" required/>
+                        <span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">
+                            First name is required
+                        </span>
         </div>
       </div>
       <br/>
@@ -21,7 +22,7 @@
           Last Name:
         </div>
         <div class="col-md-10">
-          <input type="text" name="firstName" class="form-control" data-ng-model="author.ContactName"  />
+          <input type="text" name="firstName" class="form-control" data-ng-model="author.ContactName"  required />
                         <!--<span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">-->
                             <!--Last Name is required-->
                         <!--</span>-->
@@ -33,7 +34,7 @@
           Phone Number:
         </div>
         <div class="col-md-10">
-          <input type="text" name="firstName" class="form-control" data-ng-model="author.ContactTitle"  />
+          <input type="text" name="firstName" class="form-control" data-ng-model="author.ContactTitle" required />
                         <!--<span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">-->
                             <!--Last Name is required-->
                         <!--</span>-->
@@ -45,7 +46,7 @@
           Address:
         </div>
         <div class="col-md-10">
-          <input type="text" name="firstName" class="form-control" data-ng-model="author.Address"  />
+          <input type="text" name="firstName" class="form-control" data-ng-model="author.Address"  required  />
                         <!--<span class="errorMessage" ng-show="editForm.firstName.$touched && editForm.firstName.$invalid">-->
                             <!--Last Name is required-->
                         <!--</span>-->
@@ -86,13 +87,27 @@
             {{buttonText}}
           </button>
           &nbsp;&nbsp;
-          <button type="submit" class="btn btn-primary" data-ng-disabled="buttonDisplay" data-ng-click="deleteAuthor()">
+          <button type="submit"class="btn btn-danger" data-ng-disabled="buttonDisplay" data-ng-click="deleteAuthor()">
             Delete Author
           </button>
-          <!--<button class="btn btn-danger" data-ng-if="vm.customer.id > 0" data-ng-click="vm.deleteCustomer()">Delete</button>-->
         </div>
       </div>
-      </form>
+        <br/>
+      <!--<div class="statusRow">
+        <br />
+        <div class="label label-success" data-ng-show="updateStatus">
+          <span class="glyphicon glyphicon-thumbs-up icon-white"> &nbsp; &nbsp; Author updated!</span>
+        </div>
+      </div>
+
+      <div class="statusRow">
+        <br />
+        <div class=" label label-importanat" data-ng-show="errorMessage">
+          <span class="glyphicon glyphicon-thumbs-up icon-white"> &nbsp;&nbsp; Error: {{errorMessage}} </span>
+        </div>
+      </div>-->
+      </div>
+    </form>
   </div>
 </div>
 

@@ -1,10 +1,12 @@
-<div class="container" ng-controller="ordersController" xmlns="http://www.w3.org/1999/html">
+<div class="customers view indent">
+<div class="container" ng-controller="ordersController">
   <header>
     <h3>
       <span class="glyphicon glyphicon-folder-open"></span> Orders
     </h3>
   </header>
-  <div>
+  <div class="row">
+    <div class="col-md-10">
     <ul class="nav navbar-nav">
       <li class="toolbaritem">
         <a data-ng-click="navigate('/orderEdit/0/0/0')">
@@ -12,77 +14,75 @@
         </a>
       </li>
     </ul>
+    </div>
   </div>
-
-
-  <containter>
   <div class="row">
-    <div class="col-md-2">
-<!--
-      <dropdown-multiselect pre-selected="member.authors" model="selected_items" options="authors"></dropdown-multiselect>
--->
-      <dropdown-multiselect  model="selected_items" options="authors"></dropdown-multiselect>
-
-    </div>
-    <div class="col-md-1">
-      Period:
-    </div>
-    <div class="col-md-2">
-
-      <div class="dropdown">
-        <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#" >
-          <!--  href="#"-->
-          <div class="input-group">
-            <input type="text" class="form-control"  data-ng-model="startDate">
-            <span class="input-group-addon">
-              <i class="glyphicon glyphicon-calendar"></i>
-            </span>
+    <div class="col-md-10">
+      <ul class="nav navbar-nav">
+        <li class="toolbaritem">
+          <dropdown-multiselect  model="selected_items" options="authors"></dropdown-multiselect>
+        </li>
+        <li class="toolbaritem">
+          <dropdown-multiselect  model="selected_items" options="authors"></dropdown-multiselect>
+        </li>
+        <li class="toolbaritem">
+          Period:
+        </li>
+        <li class="toolbaritem">
+          <div class="dropdown">
+            <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#" >
+              <!--  href="#"-->
+              <div class="input-group">
+                <input type="text" class="form-control"  data-ng-model="startDate">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+              </div>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <calendar data-ng-model="startDate" selected="startDate" ></calendar>
+            </ul>
           </div>
-        </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-          <calendar data-ng-model="startDate" selected="startDate" ></calendar>
-        </ul>
-      </div>
-      </div>
-
-    <div class="col-md-2">
-      <!--   <input type="text" name="firstName" class="form-control" data-ng-model="startDate"/>-->
-
-      <div class="dropdown">
-        <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" >
-          <!--  href="#"-->
-          <div class="input-group">
-            <input type="text" class="form-control"  data-ng-model="endDate">
-            <span class="input-group-addon">
-              <i class="glyphicon glyphicon-calendar"></i>
-            </span>
+        </li>
+        <li class="toolbaritem">
+          <div class="dropdown">
+            <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" >
+              <!--  href="#"-->
+              <div class="input-group">
+                <input type="text" class="form-control"  data-ng-model="endDate">
+              <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar"></i>
+              </span>
+              </div>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <calendar data-ng-model="endDate" selected="endDate" ></calendar>
+            </ul>
           </div>
-        </a>
-        <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-          <calendar data-ng-model="endDate" selected="endDate" ></calendar>
-        </ul>
-      </div>
-    </div>
-    <div>
-    <div class="col-lg-2">
-      <button class="btn-group" type="submit" data-ng-click="searchButton()">
-        Search
-      </button>
-    </div>
+        </li>
+        <li class="toolbaritem">
+          <button class="btn-success" type="submit" data-ng-click="searchButton()">
+            Search
+          </button>
+        </li>
+      </ul>
     </div>
   </div>
- </containter>
-
-  <div class="row   testingPadding">
-    <input  type="text" class="sizeOftext" data-ng-model="searchText" data-ng-change="searchTextChanged();"  placeholder="Search for authors, products" />
+  <div class="container">
+  <div class="row">
+    <div class="col-md-10">
+    <input  type="text" class="form-control testingPadding"  data-ng-model="searchText" data-ng-change="searchTextChanged();"  placeholder="Search for authors, products" />
+    </div>
   </div>
-
-  <div class="row gridContainer customersTable">
-      <table class="table table-striped table-condensed table-">
+  </div>
+  <div class="container">
+  <div class="row gridContainer customersTable show-hide-animation">
+    <div class="col-md-10">
+      <table class="table table-striped table-condensed">
         <thead>
         <tr>
           <!--<th>&nbsp;</th>-->
-          <th> <a class="test" href="" ng-click="sort('OrderName')"> Name</a></th>
+          <th> <a class="white" href="" ng-click="sort('OrderName')"> Name</a></th>
           <th><a class="test" href="" ng-click="sort('ProductName')"> Product</a></th>
           <th><a class="test" href="" ng-click="sort('ContactName')"> Author</a></th>
           <th><a class="test" href="" ng-click="sort('DateOfSale')"> Date</a></th>
@@ -93,8 +93,8 @@
           <!--<th>&nbsp;</th>-->
         </tr>
         </thead>
-        <tbody>
-        <tr data-ng-repeat="order in orders |orderBy :predicate:reverse" class="repeat-animation">
+        <tbody data-ng-repeat="order in orders |orderBy :predicate:reverse">
+        <tr  class="main-row"  class="repeat-animation" ng-click="toggleDetail($index)">
           <td>{{order.OrderName}}</td>
           <td>{{order.ProductName}}</td>
           <td>{{order.ContactName}}</td>
@@ -104,26 +104,22 @@
           <td>{{order.UnitPrice * order.Quantity}}</td>
           <td><a  ng-href="#/orderEdit/{{order.CustomerID}}/{{order.ProductID}}/{{order.OrderID}}" ng-model ="order.OrderID" >Edit</a></td>
         </tr>
-        <tr>
-          <td colspan="6">
-            &nbsp;
-          </td>
-          <td width="150">
-            <d-expand-collapse>
-              <div>
-                <span class="faqPlus"></span>
-                <a href="javascript:void(0)" class="question ui-link">
-                  <strong>{{ordersTotal}}</strong>
-                </a>
-              </div>
-              <div class="answer">
-                {{totals()}}
-              </div>
-            </d-expand-collapse>
-          </td>
-          <td></td>
+        <tr class="extra-row" data-ng-show = "activePosition == $index">
+          <td>Details {{order.OrderID}} here...</td>
         </tr>
         </tbody>
       </table>
+    </div>
   </div>
+  </div>
+  <div class="row">
+    <div class="col-md-10" data-ng-show="orders.length > 0">
+      <div class="pull-right col-span-10">{{ordersTotal}} <br/> {{totals()}} </h4></div>
+    </div>
+  </div>
+
+  <div class="row" class="col-md-10" data-ng-show="orders.length == 0">
+    <div class="col-span-10"><h4>No orders found</h4></div>
+  </div>
+</div>
 </div>

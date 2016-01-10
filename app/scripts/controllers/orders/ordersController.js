@@ -22,6 +22,10 @@ angular.module('angularCordovaApp')
     $scope.endDate = moment();
     //$scope.day = moment();
 
+    $scope.toggleDetail = function($index){
+      $scope.activePosition = $scope.activePosition == $index ? -1 : $index;
+    }
+
     $scope.roles = [
       {"id": 1, "name": "Manager", "assignable": true},
       {"id": 2, "name": "Developer", "assignable": true},
@@ -108,7 +112,7 @@ angular.module('angularCordovaApp')
     $scope.totals = function(){
       var x =  ($scope.ordersTotal*70)/100;
       var y =  ($scope.ordersTotal*30)/100;
-      return "Autor: " +  x + "Worker: " + y;
+      return "Autor: " +  x + "  " +  "Worker: " + y;
     };
 
 
