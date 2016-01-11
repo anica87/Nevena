@@ -19,7 +19,7 @@ angular.module('angularCordovaApp')
         $http.post("http://localhost:3000/addcustomer",$scope.author)
           .success(function(){
             $scope.author = angular.copy($scope.originForm);
-            $scope.registrForm.$setPristine();
+            $scope.editForm.$setPristine();
             alert("Successfully saved!");
 
           })

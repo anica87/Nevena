@@ -1,4 +1,43 @@
-﻿@font-face {
+﻿.test {
+  color: #FFFFFF;
+}
+.test:hover{
+  color: #ffffff;
+  text-decoration: none;
+}
+.test:visited{
+  color: #ffffff;
+  text-decoration: none;
+}
+.test:active{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.testingPadding{
+  margin-bottom: 30px;
+  margin-top: 30px;
+}
+
+.sizeOftext{
+  width:  auto;
+}
+
+.table{
+  width: 100%
+}
+.main-row{
+  cursor: pointer;
+}
+
+.main-row:hover{
+  background-color: #ddd;
+}
+.extra-row{
+  background-color: #aea !important;
+}
+
+@font-face {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 300;
@@ -48,25 +87,25 @@
 }
 
 html {
-    overflow-y: scroll;
-    overflow-x: hidden;
+  overflow-y: scroll;
+  overflow-x: hidden;
 }
 
 body {
-    font-family: 'Roboto'
+  font-family: 'Roboto'
 }
 
 #ng-view {
-    position: relative;
-    padding-top: 50px;
+  position: relative;
+  padding-top: 50px;
 }
 
 #nav-login {
-    margin-left:30px;
+  margin-left:30px;
 }
 
 .appTitle {
-    line-height:50px;
+  line-height:50px;
 }
 
 .view {
@@ -74,96 +113,96 @@ body {
 }
 
 .white {
-    color: white;
+  color: white;
 }
 
 .white:hover{
-    color: white;
+  color: white;
 }
 
 .card {
-    background-color:#fff;
-    border: 1px solid #d4d4d4;
-    height:100px;
-    margin-bottom: 20px;
-    position: relative;
+  background-color:#fff;
+  border: 1px solid #d4d4d4;
+  height:100px;
+  margin-bottom: 20px;
+  position: relative;
 }
 
 .cardHeader {
-    background-color:#027FF4;
-    font-size:14pt;
-    color:white;
-    padding:5px;
-    width:100%;
+  background-color:#027FF4;
+  font-size:14pt;
+  color:white;
+  padding:5px;
+  width:100%;
 }
 
 .cardClose {
-    color: white;
-    font-weight:bold;
-    margin-right:5px;
+  color: white;
+  font-weight:bold;
+  margin-right:5px;
 }
 
 .cardContainer {
-    width:85%;
+  width:85%;
 }
 
 .cardBody {
-    padding-left: 5px;
+  padding-left: 5px;
 }
 
 .cardBodyLeft {
-    margin-top: -5px;
+  margin-top: -5px;
 }
 
 .cardBodyRight {
-    margin-left: 20px;
-    margin-top: 2px;
+  margin-left: 20px;
+  margin-top: 2px;
 }
 
 .cardBodyContent {
-    width: 100px;
+  width: 100px;
 }
 
 .cardImage {
-    height:50px;width:50px;margin-top:10px;
+  height:50px;width:50px;margin-top:10px;
 }
 
 .lastRow {
-    background-color: #ccc;
+  background-color: #ccc;
 }
 
 .indent {
-    margin-left:5px;
+  margin-left:5px;
 }
 
 .ordersTable {
-    width:85%;
+  width:85%;
 }
 
 .orders th, .customers th {
-    width:20%;
-    cursor: pointer;
+  width:20%;
+  cursor: pointer;
 }
 
 .ordersTable tr:first-child th, .customersTable tr:first-child th {
-    background-color: #027FF4;
-    color: #000;
-    font-weight: bold;
+  background-color: #027FF4;
+  color: #fff;
+  font-weight: bold;
 }
 
 .gridContainer td {
-    vertical-align: middle;
+  vertical-align: middle;
 }
 
 
 #submitCustomer {
-    margin-left:50px;
-    margin-top: -8px;
+  margin-left:50px;
+  margin-top: -8px;
 }
 
 footer {
-    margin-top:10px;
-    font-weight: bold;
+  margin-top:10px;
+  font-weight: bold;
 }
 
 .customerEdit input[type='text'],
@@ -173,11 +212,11 @@ footer {
 .login input[type='text'],
 .login input[type='email'],
 .login input[type='password'] {
-    width:250px;
+  width:250px;
 }
 
 .statusRow {
-    height:50px;
+  height:50px;
 }
 
 /* Bootstrap overrides */
@@ -200,98 +239,98 @@ footer {
 }
 
 .cardContainer .col-md-3 {
-    padding-left: 0px;
+  padding-left: 0px;
 }
 
 .gridContainer  div {
-    padding-left: 0px;
+  padding-left: 0px;
 }
 
 .navbar-brand {
-    float:none;
+  float:none;
 }
 
 a.navbar-brand {
-    color: #000;
+  color: #fff;
 }
 
 .navbar-inner {
-    padding-left: 0px;
-    -webkit-border-radius: 0px;
-    border-radius: 0px;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    background-color: #027FF4;
-    background-image: none;
+  padding-left: 0px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  background-color: #027FF4;
+  background-image: none;
 }
 
 .navbar-inner.toolbar {
-    background-color: #fafafa;
+  background-color: #fafafa;
 }
 
 .navbar-inner.footer {
-    background-color: #fafafa;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    box-shadow: none;
-    height:50px;
+  background-color: #fafafa;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  height:50px;
 }
 
 .navbar .nav > .active > a, .navbar .nav > .active > a:hover, .navbar .nav > .active > a:focus {
-    background-color: #efefef;
-    -webkit-box-shadow: none;
-    box-shadow: none;
-    color: #000;
+  background-color: #efefef;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #808080;
 }
 
 .navbar .nav li.toolbaritem a:hover, .navbar .nav li a:hover {
-    color: #E03930;
+  color: #E03930;
 }
 
 .navbar .nav > li  {
-    cursor:pointer;
+  cursor:pointer;
 }
 
-    .navbar .nav > li > a {
-        color: white;
-        font-weight:bold;
-        -webkit-text-shadow: none;
-        text-shadow: none;
-        height:30px;
-        padding-top: 6px;
-        padding-bottom: 0px;
-    }
+.navbar .nav > li > a {
+  color: white;
+  font-weight:bold;
+  -webkit-text-shadow: none;
+  text-shadow: none;
+  height:30px;
+  padding-top: 6px;
+  padding-bottom: 0px;
+}
 
-    .navbar .nav > li.toolbaritem > a {
-        color: black;
-        font-weight:bold;
-        -webkit-text-shadow: none;
-        text-shadow: none;
-    }
+.navbar .nav > li.toolbaritem > a {
+  color: black;
+  font-weight:bold;
+  -webkit-text-shadow: none;
+  text-shadow: none;
+}
 
 
 .navbar-fixed-top .navbar-inner,
 .navbar-static-top .navbar-inner {
   -webkit-box-shadow: 0 1px 00px rgba(0, 0, 0, 0);
-     -moz-box-shadow: 0 1px 00px rgba(0, 0, 0, 0);
-          box-shadow: 0 1px 00px rgba(0, 0, 0, 0);
+  -moz-box-shadow: 0 1px 00px rgba(0, 0, 0, 0);
+  box-shadow: 0 1px 00px rgba(0, 0, 0, 0);
 }
 
 .nav.navBarPadding {
-    margin-left:25px;
-    margin-top: 10px;
+  margin-left:25px;
+  margin-top: 10px;
 }
 
 .navbarText {
-    font-weight:bold;
+  font-weight:bold;
 }
 
 .navbar .brand {
-    margin-top: 2px;
-    color: #fff;
-    -webkit-text-shadow: none;
-    text-shadow: none;
+  margin-top: 2px;
+  color: #fff;
+  -webkit-text-shadow: none;
+  text-shadow: none;
 }
 
 .navbar-toggle {
@@ -303,13 +342,13 @@ a.navbar-brand {
 }
 
 .close {
-    font-size:15pt;
-    opacity: 1.0;
+  font-size:15pt;
+  opacity: 1.0;
 }
 
 .modal-backdrop, .modal-backdrop.fade.in {
-    opacity: 0.5;
-    filter: alpha(opacity=50);
+  opacity: 0.5;
+  filter: alpha(opacity=50);
 }
 
 .btn.active {
@@ -318,11 +357,11 @@ a.navbar-brand {
 
 /* ng-cloak */
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng.ng-cloak {
-    display: none;
+  display: none;
 }
 
 .novalidate {
-    border-left: none !important;
+  border-left: none !important;
 }
 
 input.ng-invalid, select.ng-invalid, input.ng-invalid-required, select.ng-invalid.required {
@@ -334,76 +373,49 @@ input.ng-valid, select.ng-valid, input.ng-valid-required, select.ng-valid.requir
 }
 
 .errorMessage {
-    position:absolute;
-    padding: 5px;
-    background-color: #E03930;
-    color:white;
-    top:0px;
-    left:270px;
+  position:absolute;
+  padding: 5px;
+  background-color: #E03930;
+  color:white;
+  top:0px;
+  left:270px;
 }
 
 .editIcon {
-    margin-top: 2px;
+  margin-top: 2px;
 }
 
 .pagination li {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* wcOverlay directive CSS styles */
 .overlayContainer { display: none;}
-.overlayBackground { top:0px; left:0px; padding-left:100px;position:absolute; z-index:1000;height:100%;width:100%;background-color:#000;opacity:0.3;}
+.overlayBackground { top:0px; left:0px; padding-left:100px;position:absolute; z-index:1000;height:100%;width:100%;background-color:#808080;opacity:0.3;}
 .overlayContent { position:absolute; border: 1px solid #000; background-color:#fff; font-weight: bold;height: 100px;width: 300px;z-index:1000;text-align:center;}
 
 
 @media screen and (max-width: 640px) {
 
-    navbar-toggle {
-        display: none;
-    }
+  navbar-toggle {
+    display: none;
+  }
 
-    #ng-view {
-        padding-top: 90px;
-    }
+  #ng-view {
+    padding-top: 90px;
+  }
 
-    .navbar-brand {
-        font-size: 12pt;
-    }
+  .navbar-brand {
+    font-size: 12pt;
+  }
 
-    .nav.navBarPadding {
-        margin-left: -10px;
-    }
+  .nav.navBarPadding {
+    margin-left: -10px;
+  }
 
-    .nav > li > a {
-        padding-right: 5px;
-        padding-left: 5px;
-    }
+  .nav > li > a {
+    padding-right: 5px;
+    padding-left: 5px;
+  }
 
-    .answer{display: none}
-
-}
-
-.test {
-  color: #FFFFFF;
-}
-.test:hover{
-  color: #ffffff;
-  text-decoration: none;
-}
-.test:visited{
-  color: #ffffff;
-  text-decoration: none;
-}
-.test:active{
-  color: #ffffff;
-  text-decoration: none;
-}
-
-.testingPadding{
-  margin-bottom: 10px;
-  width: 200px;
-}
-
-.sizeOftext{
-  width:  1100px;
 }

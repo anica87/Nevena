@@ -47,6 +47,8 @@ angular.module('angularCordovaApp')
       List: 1
     };
 
+    $scope.OrderCount = 7;
+
     $scope.changeDisplayMode = function(displayMode){
 
         switch (displayMode){
@@ -74,6 +76,20 @@ angular.module('angularCordovaApp')
       index = $scope.filteredAuthors.indexOf(value);
       return (begin <= index && index < end);
     }
+
+    $scope.deleteAuthor = function(){
+
+      $http.delete("http://localhost:3000/customers/" + id)
+        .success(function(){
+          $scope.author = angular.copy($scope.originForm);
+          $scope.registrForm.$setPristine();
+          alert("Successfully deleted!")
+
+        })
+        .error(function(){
+          alert("ERROR!")
+        });
+    };
 
     function init(){
       $http.get("http://localhost:3000/data")
