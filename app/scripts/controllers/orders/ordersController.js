@@ -18,9 +18,26 @@ angular.module('angularCordovaApp')
     $scope.currentPage = 1;
     $scope.numPerPage = 10;
 
-    $scope.startDate =  moment();
-    $scope.endDate = moment();
+    $scope.fromDate =   new Date();
+    $scope.fromDate.setDate(fromDate.getDate() - 31);
+    $scope.toDate = new Date();
+    $scope.toDate.setDate(toDate.getDate() - 1);
+
     //$scope.day = moment();
+
+    $scope.formatDate = function(date, divider) {
+      var someday = new Date(date);
+      var month = someday.getUTCMonth() + 1;
+      var day = someday.getUTCDate();
+      var year = someday.getUTCFullYear();
+
+      if (month <= 9) { month = '0' + month; }
+      if (day <= 9) { day = '0' + day; }
+
+      return ('' + year + divider + month + divider + day);
+    }
+
+
 
     $scope.toggleDetail = function($index){
       $scope.activePosition = $scope.activePosition == $index ? -1 : $index;
