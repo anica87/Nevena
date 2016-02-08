@@ -13,13 +13,14 @@ angular.module('angularCordovaApp')
     $scope.pageSize = 5;
     $scope.currentPage = 1;
     $scope.numPerPage = 100;
-
+    var test = [];
     var idParam = $routeParams.id;
     $scope.authors = [];
     $scope.filteredAuthors = [];
     $scope.searchText = null;
     $scope.filteredCountAuthors = 0;
 
+    var matches =[];
 
     $scope.predicate = 'ContactName';
     $scope.reverse = true;
@@ -47,7 +48,19 @@ angular.module('angularCordovaApp')
       List: 1
     };
 
-    $scope.OrderCount = 7;
+    $scope.OrderCount = function(customerID){
+
+      for(var i = 0; i< matches.length; i++){
+        if (matches[i].key === customerID){
+          if(matches[i].value === 0){
+            return "No orders";
+          }
+          return matches[i].value;
+        }
+      }
+
+
+    };
 
     $scope.changeDisplayMode = function(displayMode){
 
@@ -66,6 +79,17 @@ angular.module('angularCordovaApp')
     };
 
     function filterAuthors(searchText){
+      angular.forEach($scope.authors, function(author){
+      $http.get("http://localhost:3000/customers/orders/"+ author.CustomerID)
+        .success(function(data){
+          matches.push({key:author.CustomerID, value: data.ordersCount})
+        })
+        .error(function(data){
+          console.log("Error "+ data);
+        });
+
+      });
+      console.log(matches);
       $scope.filteredAuthors = $filter('nameProduct')(searchText, $scope.authors);
       $scope.filteredCountAuthors = $scope.filteredAuthors.length;
     }
@@ -92,17 +116,20 @@ angular.module('angularCordovaApp')
     };
 
     function init(){
+
       $http.get("http://localhost:3000/data")
         .success(function(data){
           $scope.authors = data.customers;
+          test = data.customers;
           filterAuthors('');
         //  $scope.totalItems =  $scope.authors.length;
         })
         .error(function(data){
           console.log("Error "+ data);
         });
+
+
     };
+
     init();
-
-
   });

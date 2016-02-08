@@ -20,34 +20,21 @@
     <div class="col-md-10">
       <ul class="nav navbar-nav">
         <li class="toolbaritem">
-          <dropdown-multiselect  model="selected_items" options="authors"></dropdown-multiselect>
-        </li>
-        <li class="toolbaritem">
-          <dropdown-multiselect  model="selected_items" options="authors"></dropdown-multiselect>
-        </li>
-        <li class="toolbaritem">
-          Period:
-        </li>
-        <li class="toolbaritem">
-          <div class="dropdown">
-            <a class="dropdown-toggle" id="dropdown1" role="button" data-toggle="dropdown" data-target="#" >
-              <!--  href="#"-->
-              <div class="input-group">
-                <input type="text" class="form-control"  data-ng-model="startDate">
-              <span class="input-group-addon">
-                <i class="glyphicon glyphicon-calendar"></i>
-              </span>
-              </div>
-            </a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              <calendar data-ng-model="startDate" selected="formatDate(fromDate, '-')" ></calendar>
-            </ul>
+         <div class="row dateselector">
+            <div class="col-sm-12 center">
+              <form class="row form-inline">
+                <dropdown-multiselect title="Search Authors" model="selected_items" options="authors" class="form-control"></dropdown-multiselect>
+                <dropdown-multiselect  title="Search Orders" model="selected_items" options="orders"  class="form-control"></dropdown-multiselect>
+                <label>from&nbsp;<input  type="date" ng-model="fromDate"  required name="from" class="form-control"></label>
+                <label>to&nbsp;<input  type="date"  ng-model="toDate"  required class="form-control" name="to"></label>
+                <button class="btn-success" type="submit" data-ng-click="searchButton()">Search </button>
+              </form>
+            </div>
           </div>
         </li>
         <li class="toolbaritem">
-          <div class="dropdown">
+        <!--<div class="dropdown">
             <a class="dropdown-toggle" id="dropdown2" role="button" data-toggle="dropdown" data-target="#" >
-              <!--  href="#"-->
               <div class="input-group">
                 <input type="text" class="form-control"  data-ng-model="endDate">
               <span class="input-group-addon">
@@ -58,12 +45,7 @@
             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
               <calendar data-ng-model="endDate" selected="endDate" ></calendar>
             </ul>
-          </div>
-        </li>
-        <li class="toolbaritem">
-          <button class="btn-success" type="submit" data-ng-click="searchButton()">
-            Search
-          </button>
+          </div>-->
         </li>
       </ul>
     </div>

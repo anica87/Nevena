@@ -277,6 +277,49 @@ restapi.get('/orders', function(req, res){
   });
 });
 
+restapi.get('/customers/orders/details/:orderid', function(req, res){
+  console.log("bla bla bla ");
+  console.log(req.params.orderid);
+  db.all("select * from customers  inner join products on customers.CustomerID = products.CustomerID inner join Orders on products.CustomerID = orders.CustomerID where orders.OrderID = " +  req.params.orderid, function(err, rows){
+
+    if(err !== null){
+      next(err);
+    }
+    else{
+      res.json({"order": rows})
+      for (var i in rows){
+        console.log(rows[i]);
+      }
+    }
+  });
+});
+
+restapi.get('/customers/orders/:id', function(req, res){
+
+  db.all("SELECT count(*) as ordersCount FROM customers inner join orders on customers.CustomerID = orders.CustomerID   where customers.CustomerID = " + req.params.id , function(err, rows){
+    console.log("2");
+    if(err !== null){
+     console.log(err);
+    }
+    else{
+      res.json(rows[0]);
+    }
+  });
+});
+
+restapi.get('/customers/orders/:id', function(req, res){
+
+  db.all("SELECT count(*) as ordersCount FROM customers inner join orders on customers.CustomerID = orders.CustomerID   where customers.CustomerID = " + req.params.id , function(err, rows){
+    console.log("2");
+    if(err !== null){
+      console.log(err);
+    }
+    else{
+      res.json(rows[0]);
+    }
+  });
+});
+
 
 restapi.get('/:customerid/:productid/:orderid', function(req, res){
   console.log(req.params.customerid);
@@ -357,7 +400,7 @@ restapi.post('/:customerid/:productid/addorder', function(req, res){
 
 
 restapi.get('*', function(req, res){
-  res.sendFile('./public/index.html'); // load the sigle view file(angular will handle the page changes on the front-end)
+ // res.sendFile('./public/index.html'); // load the sigle view file(angular will handle the page changes on the front-end)
 });
 
 restapi.listen(3000);

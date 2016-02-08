@@ -1,140 +1,151 @@
 <!doctype html>
 <html>
-  <head>
-    <meta charset="utf-8">
+<head>
+  <meta charset="utf-8">
 
-    <title> Title </title>
+  <title> Title </title>
 
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
-    <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-    <!-- build:css(.) styles/vendor.css -->
-    <!-- bower:css -->
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:css(.tmp) styles/main.css -->
-    <!--<script type="text/javascript" src="/browserify.js"></script>-->
-    <link href="styles/main.scss" rel="stylesheet/scss"/>
-    <link href="styles/bootstrap.css" rel="stylesheet"/>
-    <link href="styles/animations.css" rel="stylesheet"/>
-    <link href="styles/test.less" rel="stylesheet/less"/>
-    <link href="styles/styles.css" rel="stylesheet" />
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
-    <!-- endbuild -->
-  </head>
-  <body ng-app="angularCordovaApp" >
-    <!--[if lte IE 8]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+  <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+  <!-- build:css(.) styles/vendor.css -->
+  <!-- bower:css -->
+  <!-- endbower -->
+  <!-- endbuild -->
+  <!-- build:css(.tmp) styles/main.css -->
+  <!--<script type="text/javascript" src="/browserify.js"></script>-->
+  <link href="styles/main.scss" rel="stylesheet/scss"/>
+  <link href="styles/bootstrap.css" rel="stylesheet"/>
+  <link href="styles/animations.css" rel="stylesheet"/>
+  <link href="styles/test.less" rel="stylesheet/less"/>
+  <link href="styles/styles.css" rel="stylesheet" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/0.10.0/lodash.min.js"></script>
+  <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/themes/smoothness/jquery-ui.css" rel="stylesheet" type="text/css" />
 
-    <!-- Add your site or application content here -->
-    <div  class = "navbar navbar-inner navbar-fixed-top" >
-     <!-- <div class="navbar navbar-default" role="navigation">-->
-        <div class="container">
-          <div class="navbar-header">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+  <script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
 
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Testing</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
 
-            <a class="navbar-brand" href="#/">angularCordova</a>
-          </div>
+  <!-- endbuild -->
+</head>
+<body ng-app="angularCordovaApp" >
+<!--[if lte IE 8]>
+<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
 
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
+<!-- Add your site or application content here -->
+<div  class = "navbar navbar-inner navbar-fixed-top" >
+  <!-- <div class="navbar navbar-default" role="navigation">-->
+  <div class="container">
+    <div class="navbar-header">
 
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/products">Products</a></li>
-              <li><a ng-href="#/orders">Orders</a></li>
-             <!-- <li><a ng-href="#/authorEdit">AuthorEdit</a></li>-->
-              <li><a ng-href="#/">Contact</a></li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
+        <span class="sr-only">Testing</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="navbar-brand" href="#/">angularCordova</a>
     </div>
+
+    <div class="collapse navbar-collapse" id="js-navbar-collapse">
+
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#/">Home</a></li>
+        <li><a ng-href="#/products">Products</a></li>
+        <li><a ng-href="#/orders">Orders</a></li>
+        <!-- <li><a ng-href="#/authorEdit">AuthorEdit</a></li>-->
+       <!-- <li><a ng-href="#/">Contact</a></li>-->
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
 
 <!--    <div class="container">
     slide-animation class is important
     <div ng-view=""></div>
     </div>-->
 
-    <div class="slide-animation-container">
-      <div data-ng-view id="ng-view" class="slide-animation"></div>
-    </div>
+<div class="slide-animation-container">
+  <div data-ng-view id="ng-view" class="slide-animation"></div>
+</div>
 
-    <div id="footer" class="footer">
-      <div class="navbar navbar-fixed-bottom">
-        <div class="navbar-inner footer">
-          <div class="container">
-            <footer>
-              <div class="row">
-                <div class="col-md-12">
-                  Created by <a href="www.google.com" target="_blank">Team</a>
-                </div>
-              </div>
-            </footer>
+<div id="footer" class="footer">
+  <div class="navbar navbar-fixed-bottom">
+    <div class="navbar-inner footer">
+      <div class="container">
+        <footer>
+          <div class="row">
+            <div class="col-md-12">
+              Created by <a href="www.google.com" target="_blank">Team</a>
+            </div>
           </div>
-        </div>
+        </footer>
       </div>
     </div>
+  </div>
+</div>
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
+<script>
+  !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
+      (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
+    r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
+  }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
-	<script type="text/javascript" src="cordova.js"></script>
-    <!-- build:js(.) scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="bower_components/jquery/dist/jquery.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
-    <script src="bower_components/moment/moment.js"></script>
-    <script src="bower_components/angular-moment/angular-moment.js"></script>
-    <script src="bower_components/angular-animate/angular-animate.js"></script>
-    <script src="bower_components/angular-cookies/angular-cookies.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.js"></script>
-    <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
-    <script src="bower_components/angular-touch/angular-touch.js"></script>
-    <script src="bower_components/angular-momentjs/angular-momentjs.js"></script>
-    <script src="bower_components/less/dist/less.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
+  ga('create', 'UA-XXXXX-X');
+  ga('send', 'pageview');
+</script>
+<script type="text/javascript" src="cordova.js"></script>
+<!-- build:js(.) scripts/vendor.js -->
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/jquery-ui/jquery-ui.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/bootstrap-sass-official/assets/javascripts/bootstrap.js"></script>
+<script src="bower_components/moment/moment.js"></script>
+<script src="bower_components/angular-moment/angular-moment.js"></script>
+<script src="bower_components/angular-animate/angular-animate.js"></script>
+<script src="bower_components/angular-cookies/angular-cookies.js"></script>
+<script src="bower_components/angular-resource/angular-resource.js"></script>
+<script src="bower_components/angular-route/angular-route.js"></script>
+<script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
+<script src="bower_components/angular-touch/angular-touch.js"></script>
+<script src="bower_components/angular-momentjs/angular-momentjs.js"></script>
+<script src="bower_components/less/dist/less.js"></script>
+<script src="bower_components/angular-bootstrap/ui-bootstrap.js"></script>
+<!-- endbower -->
+<!-- endbuild -->
 
-        <!-- build:js({.tmp,app}) scripts/scripts.js -->
-        <script src="scripts/app.js"></script>
+<!-- build:js({.tmp,app}) scripts/scripts.js -->
+<script src="scripts/app.js"></script>
 
-        <!--<script src="../server/nodesqlite3.js"></script>-->
-        <script src="scripts/controllers/main.js"></script>
-        <script src="scripts/controllers/about.js"></script>
-        <script src="scripts/controllers/authors/authorEditController.js"></script>
-        <script src="scripts/controllers/authors/authorsController.js"></script>
-        <script src="scripts/controllers/products/productEditController.js"></script>
-        <script src="scripts/controllers/products/productsController.js"></script>
-        <script src="scripts/controllers/orders/orderEditController.js"></script>
-        <script src="scripts/controllers/orders/ordersController.js"></script>
-        <script src="scripts/filters/nameProductFilter.js"></script>
-        <script src="scripts/filters/ordersByAuthorOrProductName.js"></script>
-        <script src="scripts/customDirectives/orderDetails.js"></script>
-        <script src="scripts/customDirectives/calendar.js"></script>
-        <script src="scripts/customDirectives/dExpandCollapse.js"></script>
-      <script src="scripts/customDirectives/dropDownMultiSelect.js"></script>
-        <script src="scripts/services/cordova.js"></script>
+<!--<script src="../server/nodesqlite3.js"></script>-->
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/controllers/about.js"></script>
+<script src="scripts/controllers/authors/authorEditController.js"></script>
+<script src="scripts/controllers/authors/authorsController.js"></script>
+<script src="scripts/controllers/products/productEditController.js"></script>
+<script src="scripts/controllers/products/productsController.js"></script>
+<script src="scripts/controllers/orders/orderEditController.js"></script>
+<script src="scripts/controllers/orders/ordersController.js"></script>
+<script src="scripts/filters/nameProductFilter.js"></script>
+<script src="scripts/filters/ordersByAuthorOrProductName.js"></script>
+<script src="scripts/customDirectives/orderDetails.js"></script>
+<script src="scripts/customDirectives/calendar.js"></script>
+<script src="scripts/customDirectives/dExpandCollapse.js"></script>
+<script src="scripts/customDirectives/dropDownMultiSelect.js"></script>
+<script src="scripts/customDirectives/datePicker.js"></script>
+<script src="scripts/customDirectives/modal.js"></script>
+<script src="scripts/services/cordova.js"></script>
+<script src="scripts/services/modalService.js"></script>
 
-        <!-- endbuild -->
+<!-- endbuild -->
 </body>
 </html>

@@ -18,14 +18,18 @@ angular.module('angularCordovaApp')
     $scope.currentPage = 1;
     $scope.numPerPage = 10;
 
+/*    $scope.startDate =   new Date();
+    $scope.endDate =   new Date();*/
+
     $scope.fromDate =   new Date();
-    $scope.fromDate.setDate(fromDate.getDate() - 31);
+    $scope.fromDate.setDate($scope.fromDate.getDate() - 31);
     $scope.toDate = new Date();
-    $scope.toDate.setDate(toDate.getDate() - 1);
+    $scope.toDate.setDate($scope.toDate.getDate() - 1);
 
-    //$scope.day = moment();
 
-    $scope.formatDate = function(date, divider) {
+
+
+      function formatDate(date, divider) {
       var someday = new Date(date);
       var month = someday.getUTCMonth() + 1;
       var day = someday.getUTCDate();
@@ -64,13 +68,13 @@ angular.module('angularCordovaApp')
    // $scope.selectedOptions = [];
 
     $scope.searchButton = function(){
-      var matches = [];
+/*      var matches = [];
       angular.forEach($scope.orders, function(order) {
         angular.forEach($scope.selected_items, function(authorID) {
           if(authorID ==  order.CustomerID){
             var dateOfSale = new Date(order.DateOfSale);
-            var start = new Date($scope.startDate);
-            var end = new Date($scope.endDate);
+            var start = new Date($scope.fromDate);
+            var end = new Date($scope.toDate);
             if (dateOfSale >= start && dateOfSale <= end ) {
               matches.push(order);
             }
@@ -81,11 +85,11 @@ angular.module('angularCordovaApp')
 
         });
       });
-      $scope.orders =matches;
+      $scope.orders =matches;*/
       calculateOrdersTotal();
     };
 
-    $scope.formatStartDate = function(){
+/*    $scope.formatStartDate = function(){
      return new Date($scope.startDate).toLocaleDateString("en-US");
      // return new Date($scope.startDate);
 
@@ -94,7 +98,7 @@ angular.module('angularCordovaApp')
     $scope.formatEndDate = function(){
      return new Date($scope.endDate).toLocaleDateString("en-US");
       //return new Date($scope.endDate);
-    };
+    };*/
 
     $scope.navigate = function(url){
       $location.path(url);

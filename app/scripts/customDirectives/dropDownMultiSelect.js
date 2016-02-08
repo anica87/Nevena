@@ -50,7 +50,9 @@ angular.module('angularCordovaApp')
      require: '?ngModel',
      scope: {
      model: '=',
-     options: '='
+     options: '=',
+     title: '@'
+
     // ,pre_selected: '=preSelected'
      },
 

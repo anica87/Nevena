@@ -52,9 +52,9 @@
               </div>
               <div class="pull-right cardBodyRight">
                 <div class="cardBodyContent">{{author.CompanyName}} {{author.ContactTitle}}</div>
-                <div>
-                  <a ng-href="#/orders" class="btn-link">{{OrderCount}}</a>
-                </div>
+               <div>
+                 <a ng-href="#/orders" class="btn-link">{{OrderCount(author.CustomerID)}}</a>
+              </div>
               </div>
           </div>
        </div>
@@ -109,7 +109,7 @@
   </div>
   <div class="row show-hide-animation" data-ng-show="filteredCountAuthors > 0">
     <div class="col-md-12">
-            <div total-items="filteredCountAuthors"
+                     <div total-items="filteredCountAuthors"
                         ng-model="currentPage"
                         max-size="5"
                         boundary-links="true"

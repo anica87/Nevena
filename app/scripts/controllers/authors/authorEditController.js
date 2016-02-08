@@ -2,7 +2,7 @@
  * Created by anicam on 25/11/2015.
  */
 angular.module('angularCordovaApp')
-  .controller('authorEditController', function ( $scope, $http, $routeParams) {
+  .controller('authorEditController',['$scope', '$http', '$routeParams', 'modalService', function ( $scope, $http, $routeParams, modalService) {
 
     var id  = $routeParams.id;
     var authorId = ($routeParams.id) ? parseInt($routeParams.id) : 0;
@@ -15,6 +15,8 @@ angular.module('angularCordovaApp')
 
 
     $scope.saveAuthor = function(){
+
+
        if(!authorId) {
         $http.post("http://localhost:3000/addcustomer",$scope.author)
           .success(function(){
@@ -42,6 +44,17 @@ angular.module('angularCordovaApp')
 
     $scope.deleteAuthor = function(){
 
+      var modalOptions = {
+        headerText: 'Delete',
+        bodyText: 'Are you sure you want to delete this customer?',
+        closeButtonText: 'Cancel',
+        actionButtonText:'Delete Customer'
+      };
+
+       modalService.showModal({}, modalOptions).then(
+         function(result){
+          console.log("Ovde treba da pozovem dataService");
+         });
       $http.delete("http://localhost:3000/customers/" + id)
         .success(function(){
           $scope.author = angular.copy($scope.originForm);
@@ -52,6 +65,7 @@ angular.module('angularCordovaApp')
         .error(function(){
           alert("ERROR!")
         });
+
     };
 
     $scope.getAuthorById = function(){
@@ -80,4 +94,4 @@ angular.module('angularCordovaApp')
     };
     init();
 
-  });
+  }]);
